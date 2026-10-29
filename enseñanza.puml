@@ -1,0 +1,97 @@
+@startuml hola
+hide methods
+skinparam classAttributeIconSize 0
+
+
+class Mision{
+    titulo VARCHAR
+    localidad VARCHAR
+    descripcion VARCHAR
+}
+
+class "Escuela de oficios" as EscuelaDeOficios{
+    
+}
+
+class Becados{
+}
+
+
+class Apadrinamiento{
+}
+
+'Lo que viene a continuacion es para la estetica del diagrama:
+EscuelaDeOficios -[hidden]right- Becados
+Becados -[hidden]right- Apadrinamiento
+
+
+'Subclases de Mision:
+Mision <|-- EscuelaDeOficios
+Mision <|-- Becados
+Mision <|-- Apadrinamiento
+
+'Restricción de cobertura:
+note on link : {completa, disjunta}
+
+class Apadrinado{
+}
+
+class Estudiante_O{
+}
+
+class Estudiante_B{
+}
+
+class Curso {
+    titulo
+}
+
+class Trabajador{
+}
+
+
+class AsignaturaApadrinado{
+    titulo VARCHAR
+}
+
+class NotaApadrinado{
+    nota INT 
+}
+
+class AsignaturaOficios{
+    titulo VARCHAR
+}
+class NotaOficios{
+    nota INT 
+}
+
+Trabajador "1..*"--"*" AsignaturaOficios
+Estudiante_O "*"--"*" AsignaturaOficios
+Curso "*"--"*" AsignaturaOficios
+Trabajador "1..*"--"*" AsignaturaApadrinado
+Apadrinado "*"--"*" AsignaturaApadrinado
+
+Apadrinamiento "1"--"*" Apadrinado
+
+EscuelaDeOficios --"*" Curso
+Becados --"*" Estudiante_B
+
+(AsignaturaOficios, Estudiante_O) .. NotaOficios
+(AsignaturaApadrinado, Apadrinado) .. NotaApadrinado
+
+'Regla de negocio 01:
+note "RN01\n La misión de \n apadrinamiento acaba a los 18 años, \n después, el joven puede elegir entre \n ser becado o no." as RN01
+RN01 .. Mision
+RN01 .. Apadrinado
+
+
+'Regla de negocio 03:
+note "RN03\n La nota deberá ser \n entre 0 y 10." as RN03
+RN03 .. NotaApadrinado
+RN03 .. NotaOficios
+
+
+'Lo que viene a continuacion es para la estetica del diagrama:
+Apadrinamiento -[hidden]right- EscuelaDeOficios
+EscuelaDeOficios -[hidden]right- Becados
+@enduml

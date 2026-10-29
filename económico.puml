@@ -11,6 +11,14 @@ class Proyecto{
     fechaFinal DATE
 }
 
+class ActividadProyecto{
+    titulo VARCHAR
+    descripcion VARCHAR
+    coste INT
+    fechaInicio DATE
+    fechaFinal DATE
+}
+
 class Mision{
     titulo VARCHAR
     localidad VARCHAR
@@ -35,6 +43,7 @@ Becados -[hidden]right- Apadrinamiento
 Mision "*"--"*" Proyecto
 Mision "*"--"*" Trabajador
 Mision "*"--"*" Trabajador
+Proyecto *--"*" ActividadProyecto
 
 'Subclases de Mision:
 Mision <|-- EscuelaDeOficios
@@ -47,11 +56,6 @@ note on link : {completa, disjunta}
 class Apadrinado{
 }
 
-class Estudiante_O{
-}
-
-class Estudiante_B{
-}
 
 class Aportacion_B{
     cantidad INT
@@ -87,7 +91,7 @@ class Trabajador{
 class ContratoTrabajador{
     sueldo INT
     fechaInicio DATE
-    fechaFin DATE
+    fechaFinal DATE
 }
 
 class Pago{
@@ -98,7 +102,7 @@ class Pago{
 class ContratoPadrino{
     aportacion INT
     fechaInicio DATE
-    fechaFin DATE
+    fechaFinal DATE
 }
 
 class SueldoPagado{
@@ -106,25 +110,14 @@ class SueldoPagado{
     fecha DATE
 }
 
-class Asignatura{
-    titulo
-    nota
-}
-
-Estudiante_O "*"--"*" Asignatura
-Trabajador "1..*"--"*" Asignatura
-Apadrinado "*"--"*" Asignatura
 
 Apadrinamiento "1"--"*" Apadrinado
 Benefactor "*"--"*" Apadrinado
 Benefactor "*"--"*" Apadrinado
 Benefactor "*"--"*" Proyecto
 
-Trabajador "*"--"*" Empleado
 Empleado "*"--"*"Benefactor
 
-EscuelaDeOficios --"*" Estudiante_O
-Becados --"*" Estudiante_B
 
 (Empleado, Benefactor) .. AccionesMarketing
 (Trabajador, Mision) .. ContratoTrabajador
@@ -142,6 +135,8 @@ RN01 .. Apadrinado
 note "RN02\n No puede haber \n más de un contrato vigente entre \n distintos benefactores con \n un apadrinado." as RN02
 RN02 .. Benefactor
 RN02 .. Apadrinado
+
+
 
 'Lo que viene a continuacion es para la estetica del diagrama:
 Apadrinamiento -[hidden]right- EscuelaDeOficios

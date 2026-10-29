@@ -18,39 +18,38 @@ note on link : {completa, disjunta}
 class Trabajador{
     NIF VARCHAR
     correo VARCHAR
-    telefono
+    telefono INT
 }
 
 class Empleado{
     NIF VARCHAR
     correo VARCHAR
-    telefono
+    telefono INT
     rol VARCHAR
 }
 
 class Benefactor{
     NIF VARCHAR
-    telefono
+    telefono INT
     horasPosiblesLlamadas VARCHAR
     correo VARCHAR
-    individuo  
+    individuo BOOL
 }
 
 class Estudiante_B{
     correo VARCHAR
-    telefono
+    telefono INT
     QueEstudia VARCHAR
     destino VARCHAR
 }
 
 class Estudiante_O{
     correo VARCHAR
-    telefono
-    QueEstudia_Enum VARCHAR
+    telefono INT
 }
 
 class Apadrinado{
-    fechaFinApadrinado
+    fechaFinApadrinado DATE
     localidad VARCHAR
     nombreTutor STRING
     telefonoTutor INT
