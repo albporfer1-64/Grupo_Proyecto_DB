@@ -1,0 +1,14 @@
+cantidad -> sueldo
+Marketing -> AccionesMarketing
+Clase nueva Persona
+quitar mensajess
+Benefactor *----* Proyecto
+Aportacion : cantidad, fechaDePago
+Clase nueva contrato de Padrino
+Benafactor *__* Apadrinado , (Benefactor, Apadrinado) -- Pagos
+Benefactor 1__* Apadrinado , (Benefactor, Apadrinado) -- Contrato
+Benefactor : numCuenta
+Apadrinado familia
+localidad de mision
+cambiar sueldo de trabajador a contrato (mismo que contrato y pago)
+Proyecto <>-- AcionesProyecto (capital empleado = suma de los gastos)

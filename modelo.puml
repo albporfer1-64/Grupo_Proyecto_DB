@@ -1,0 +1,159 @@
+@startuml hola
+hide methods
+skinparam classAttributeIconSize 0
+
+class Proyecto{
+    titulo
+    contenido
+    capitalEstimado
+    capitalEmpleado
+    fechaInicio
+    fechaFinal
+}
+
+class Mision{
+    titulo
+    descripcion
+}
+
+class "Escuela de oficios" as EscuelaDeOficios{
+    
+}
+
+class Becados{
+}
+
+
+class Apadrinamiento{
+}
+
+'Lo que viene a continuacion es para la estetica del diagrama:
+EscuelaDeOficios -[hidden]right- Becados
+Becados -[hidden]right- Apadrinamiento
+
+Mision "*"--"*" Proyecto
+Mision "*"--"*" Trabajador
+
+'Subclases de Mision:
+Mision <|-- EscuelaDeOficios
+Mision <|-- Becados
+Mision <|-- Apadrinamiento
+
+'Restricción de cobertura:
+note on link : {completa, disjunta}
+
+class Apadrinado{
+    nombre
+    apellidos
+    fechaNacimiento
+    fechaFinApadrinado
+}
+
+class Estudiante_O{
+    nombre
+    apellidos
+    fechaNacimiento
+    correo
+    telefono
+    QueEstudia_Enum
+}
+
+class Estudiante_B{
+    nombre
+    apellidos
+    fechaNacimiento
+    correo
+    telefono
+    QueEstudia
+    destino
+}
+
+class Padrino{
+}
+
+class Aportacion_B{
+    cantidad
+    fecha
+}
+
+class Aportacion_P{
+    cantidad
+    fechaInicio
+    fechaFin
+}
+
+class Marketing {
+    hora
+    fecha
+    contenido
+    metodoComunicacion
+    valoracion
+}
+
+class Benefactor{
+    nombre
+    apellidos
+    telefono
+    horasPosiblesLlamadas
+    NIF
+    correo
+    individuo  
+}
+
+class Empleado{
+    nombre
+    apellidos
+    NIF
+    correo
+    telefono
+    rol
+    }
+
+class Mensaje{
+    fecha
+    hora
+    contenido    
+}
+class Trabajador{
+    nombre
+    apellidos
+    NIF
+    correo
+    telefono
+}
+
+class Sueldo{
+    cantidad
+    fechaInicio
+    fechaFin
+}
+
+Apadrinamiento "1"--"*" Apadrinado
+Padrino "1"--"*" Apadrinado
+
+Trabajador "*"--"*" Empleado
+Empleado "*"--"*"Benefactor
+
+EscuelaDeOficios --"*" Estudiante_O
+Becados --"*" Estudiante_B
+
+(Trabajador, Empleado) .. Mensaje
+(Empleado, Benefactor) .. Marketing
+(Trabajador, Mision) .. Sueldo
+(Benefactor, Proyecto) .. Aportacion_B
+(Padrino, Apadrinado) .."*" Aportacion_P
+
+'Subclases de Donante:
+Benefactor <|-- Padrino
+
+note on link : "{incompleta, disjunta}"
+
+'Regla de negocio 01:
+note "RN01\n La misión de \n apadrinamiento acaba a los 18 años, \n después, el joven puede elegir entre \n ser becado o no." as RN01
+RN01 .. Mision
+RN01 .. Apadrinado
+
+'Lo que viene a continuacion es para la estetica del diagrama:
+Apadrinamiento -[hidden]right- EscuelaDeOficios
+EscuelaDeOficios -[hidden]right- Becados
+@enduml
