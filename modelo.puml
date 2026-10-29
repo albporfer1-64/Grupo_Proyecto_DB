@@ -34,6 +34,7 @@ Becados -[hidden]right- Apadrinamiento
 
 Mision "*"--"*" Proyecto
 Mision "*"--"*" Trabajador
+Mision "*"--"*" Trabajador
 
 'Subclases de Mision:
 Mision <|-- EscuelaDeOficios
@@ -63,6 +64,14 @@ class AccionesMarketing {
     contenido VARCHAR
     metodoComunicacion VARCHAR
     valoracion_E
+}
+
+enum valoracion_E{
+    MUY_MAL
+    MAL
+    NORMAL
+    BIEN
+    MUY_BIEN
 }
 
 class Benefactor{ 
@@ -107,7 +116,7 @@ Trabajador "1..*"--"*" Asignatura
 Apadrinado "*"--"*" Asignatura
 
 Apadrinamiento "1"--"*" Apadrinado
-Benefactor "1"--"*" Apadrinado
+Benefactor "*"--"*" Apadrinado
 Benefactor "*"--"*" Apadrinado
 Benefactor "*"--"*" Proyecto
 
@@ -119,6 +128,7 @@ Becados --"*" Estudiante_B
 
 (Empleado, Benefactor) .. AccionesMarketing
 (Trabajador, Mision) .. ContratoTrabajador
+(Trabajador, Mision) .. SueldoPagado
 (Benefactor, Proyecto) .. Aportacion_B
 (Benefactor, Apadrinado) .. Pago
 (Benefactor, Apadrinado) .. ContratoPadrino
