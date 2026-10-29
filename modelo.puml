@@ -109,11 +109,6 @@ class Empleado{
     rol
     }
 
-class Mensaje{
-    fecha
-    hora
-    contenido    
-}
 class Trabajador{
     nombre
     apellidos
@@ -137,7 +132,6 @@ Empleado "*"--"*"Benefactor
 EscuelaDeOficios --"*" Estudiante_O
 Becados --"*" Estudiante_B
 
-(Trabajador, Empleado) .. Mensaje
 (Empleado, Benefactor) .. Marketing
 (Trabajador, Mision) .. Sueldo
 (Benefactor, Proyecto) .. Aportacion_B
