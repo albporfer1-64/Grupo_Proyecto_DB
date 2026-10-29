@@ -43,32 +43,12 @@ Mision <|-- Apadrinamiento
 note on link : {completa, disjunta}
 
 class Apadrinado{
-    nombre
-    apellidos
-    fechaNacimiento
-    fechaFinApadrinado
 }
 
 class Estudiante_O{
-    nombre
-    apellidos
-    fechaNacimiento
-    correo
-    telefono
-    QueEstudia_Enum
 }
 
 class Estudiante_B{
-    nombre
-    apellidos
-    fechaNacimiento
-    correo
-    telefono
-    QueEstudia
-    destino
-}
-
-class Padrino{
 }
 
 class Aportacion_B{
@@ -76,55 +56,50 @@ class Aportacion_B{
     fecha
 }
 
-class Aportacion_P{
-    cantidad
-    fechaInicio
-    fechaFin
+class AccionesMarketing {
+    hora TIME
+    fecha DATE
+    contenido STRING
+    metodoComunicacion STRING
+    valoracion_E
 }
 
-class Marketing {
-    hora
-    fecha
-    contenido
-    metodoComunicacion
-    valoracion
-}
-
-class Benefactor{
-    nombre
-    apellidos
-    telefono
-    horasPosiblesLlamadas
-    NIF
-    correo
-    individuo  
+class Benefactor{ 
+    numCuenta INT
 }
 
 class Empleado{
-    nombre
-    apellidos
-    NIF
-    correo
-    telefono
-    rol
-    }
-
-class Trabajador{
-    nombre
-    apellidos
-    NIF
-    correo
-    telefono
 }
 
-class Sueldo{
-    cantidad
-    fechaInicio
-    fechaFin
+class Trabajador{
+}
+
+class ContratoTrabajador{
+    sueldo INT
+    fechaInicio DATE
+    fechaFin DATE
+}
+
+class Pago{
+    cantidad INT
+    fecha DATE
+}
+
+class ContratoPadrino{
+    aportacion INT
+    fechaInicio DATE
+    fechaFin DATE
+}
+
+class SueldoPagado{
+    cantidad INT
+    fecha DATE
 }
 
 Apadrinamiento "1"--"*" Apadrinado
-Padrino "1"--"*" Apadrinado
+Benefactor "1"--"*" Apadrinado
+Benefactor "*"--"*" Apadrinado
+Benefactor "*"--"*" Proyecto
 
 Trabajador "*"--"*" Empleado
 Empleado "*"--"*"Benefactor
@@ -132,20 +107,21 @@ Empleado "*"--"*"Benefactor
 EscuelaDeOficios --"*" Estudiante_O
 Becados --"*" Estudiante_B
 
-(Empleado, Benefactor) .. Marketing
-(Trabajador, Mision) .. Sueldo
+(Empleado, Benefactor) .. AccionesMarketing
+(Trabajador, Mision) .. ContratoTrabajador
 (Benefactor, Proyecto) .. Aportacion_B
-(Padrino, Apadrinado) .."*" Aportacion_P
-
-'Subclases de Donante:
-Benefactor <|-- Padrino
-
-note on link : "{incompleta, disjunta}"
+(Benefactor, Apadrinado) .. Pago
+(Benefactor, Apadrinado) .. ContratoPadrino
 
 'Regla de negocio 01:
 note "RN01\n La misión de \n apadrinamiento acaba a los 18 años, \n después, el joven puede elegir entre \n ser becado o no." as RN01
 RN01 .. Mision
 RN01 .. Apadrinado
+
+'Regla de negocio 02:
+note "RN02\n No puede haber \n más de un contrato vigente entre \n distintos benefactores con \n un apadrinado." as RN02
+RN02 .. Benefactor
+RN02 .. Apadrinado
 
 'Lo que viene a continuacion es para la estetica del diagrama:
 Apadrinamiento -[hidden]right- EscuelaDeOficios
