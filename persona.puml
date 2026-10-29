@@ -1,6 +1,6 @@
 class Persona{
-    nombre STRING
-    apellidos STRING
+    nombre VARCHAR
+    apellidos VARCHAR
     fechaNacimiento DATE (puede ser NULL)
 }
 
@@ -16,39 +16,43 @@ Persona <|-- Trabajador
 note on link : {completa, disjunta}
 
 class Trabajador{
-    NIF
-    correo
+    NIF VARCHAR
+    correo VARCHAR
     telefono
 }
 
 class Empleado{
-    NIF
-    correo
+    NIF VARCHAR
+    correo VARCHAR
     telefono
-    rol
+    rol VARCHAR
 }
 
 class Benefactor{
-    NIF
+    NIF VARCHAR
     telefono
-    horasPosiblesLlamadas
-    correo
+    horasPosiblesLlamadas VARCHAR
+    correo VARCHAR
     individuo  
 }
 
 class Estudiante_B{
-    correo
+    correo VARCHAR
     telefono
-    QueEstudia
-    destino
+    QueEstudia VARCHAR
+    destino VARCHAR
 }
 
 class Estudiante_O{
-    correo
+    correo VARCHAR
     telefono
-    QueEstudia_Enum
+    QueEstudia_Enum VARCHAR
 }
 
 class Apadrinado{
     fechaFinApadrinado
+    localidad VARCHAR
+    nombreTutor STRING
+    telefonoTutor INT
+    emailTutor STRING
 }

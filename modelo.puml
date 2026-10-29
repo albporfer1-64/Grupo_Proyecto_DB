@@ -3,17 +3,18 @@ hide methods
 skinparam classAttributeIconSize 0
 
 class Proyecto{
-    titulo
-    contenido
-    capitalEstimado
-    capitalEmpleado
-    fechaInicio
-    fechaFinal
+    titulo VARCHAR
+    contenido VARCHAR
+    capitalEstimado INT
+    capitalEmpleado INT
+    fechaInicio DATE
+    fechaFinal DATE
 }
 
 class Mision{
-    titulo
-    descripcion
+    titulo VARCHAR
+    localidad VARCHAR
+    descripcion VARCHAR
 }
 
 class "Escuela de oficios" as EscuelaDeOficios{
@@ -52,15 +53,15 @@ class Estudiante_B{
 }
 
 class Aportacion_B{
-    cantidad
-    fecha
+    cantidad INT
+    fecha DATE
 }
 
 class AccionesMarketing {
     hora TIME
     fecha DATE
-    contenido STRING
-    metodoComunicacion STRING
+    contenido VARCHAR
+    metodoComunicacion VARCHAR
     valoracion_E
 }
 
@@ -95,6 +96,15 @@ class SueldoPagado{
     cantidad INT
     fecha DATE
 }
+
+class Asignatura{
+    titulo
+    nota
+}
+
+Estudiante_O "*"--"*" Asignatura
+Trabajador "1..*"--"*" Asignatura
+Apadrinado "*"--"*" Asignatura
 
 Apadrinamiento "1"--"*" Apadrinado
 Benefactor "1"--"*" Apadrinado
