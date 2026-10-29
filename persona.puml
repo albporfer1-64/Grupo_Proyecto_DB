@@ -1,0 +1,54 @@
+class Persona{
+    nombre STRING
+    apellidos STRING
+    fechaNacimiento DATE (puede ser NULL)
+}
+
+'Subclases de Persona:
+Persona <|-- Apadrinado
+Persona <|-- Estudiante_O
+Persona <|-- Estudiante_B
+Persona <|-- Benefactor
+Persona <|-- Empleado
+Persona <|-- Trabajador
+
+'Restricción de cobertura:
+note on link : {completa, disjunta}
+
+class Trabajador{
+    NIF
+    correo
+    telefono
+}
+
+class Empleado{
+    NIF
+    correo
+    telefono
+    rol
+}
+
+class Benefactor{
+    NIF
+    telefono
+    horasPosiblesLlamadas
+    correo
+    individuo  
+}
+
+class Estudiante_B{
+    correo
+    telefono
+    QueEstudia
+    destino
+}
+
+class Estudiante_O{
+    correo
+    telefono
+    QueEstudia_Enum
+}
+
+class Apadrinado{
+    fechaFinApadrinado
+}
