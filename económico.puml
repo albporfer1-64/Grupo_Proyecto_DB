@@ -6,7 +6,6 @@ class Proyecto{
     titulo VARCHAR
     contenido VARCHAR
     capitalEstimado INT
-    capitalEmpleado INT
     fechaInicio DATE
     fechaFinal DATE
 }
