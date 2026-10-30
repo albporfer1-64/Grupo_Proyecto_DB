@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="935px" preserveAspectRatio="none" style="width:738px;height:935px;" version="1.1" viewBox="0 0 738 935" width="738px" zoomAndPan="magnify"><defs><filter height="300%" id="f2pbtrph3ont8" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[c18cdabf1eb0f0622b5139745750afb3]
+class Mision--><rect codeLine="5" fill="#FEFECE" filter="url(#f2pbtrph3ont8)" height="79.5997" id="Mision" style="stroke:#A80036;stroke-width:1.5;" width="124" x="409" y="155"/><ellipse cx="449.2" cy="171" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M444.2,172.1563 C444.2,174.6563 446.3406,176.4688 449.2625,176.4688 C450.4969,176.4688 451.6688,176.1719 452.4188,175.6563 C453.0281,175.2344 453.3563,174.8125 453.3563,174.4063 C453.3563,173.9375 452.9344,173.5313 452.4344,173.5313 C452.2,173.5313 451.9813,173.6094 451.7781,173.8125 C451.3406,174.25 451.3406,174.25 451.1688,174.3438 C450.7156,174.5781 450.075,174.7188 449.3094,174.7188 C447.3094,174.7188 446.0281,173.7031 446.0281,172.125 L446.0281,171.0781 C446.0281,169.375 447.2469,168.1719 448.95,168.1719 C449.5281,168.1719 450.1063,168.3125 450.575,168.5625 C451.0438,168.8281 451.2156,169.0156 451.2781,169.375 C451.4031,170.0469 451.6531,170.2969 452.1844,170.2969 C452.4656,170.2969 452.7469,170.1563 452.9344,169.9375 C453.0594,169.7656 453.1063,169.5938 453.1063,169.1563 L453.1063,167.7969 C453.1063,167.375 453.0906,167.2344 452.9656,167.0625 C452.7938,166.8125 452.5125,166.6563 452.1844,166.6563 C451.8719,166.6563 451.6688,166.7656 451.45,167.0313 C450.2781,166.5313 449.8406,166.4219 448.8875,166.4219 C446.2156,166.4219 444.2,168.4375 444.2,171.0625 L444.2,172.1563 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="36" x="468.8" y="174.948">Mision</text><line style="stroke:#A80036;stroke-width:1.5;" x1="410" x2="532" y1="187" y2="187"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="78" x="415" y="201.2189">titulo VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="98" x="415" y="214.4188">localidad VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="112" x="415" y="227.6187">descripcion VARCHAR</text><!--MD5=[8dd73a8c68b8d01cbc0be877ed09e3db]
+class EscuelaDeOficios--><rect codeLine="11" fill="#FEFECE" filter="url(#f2pbtrph3ont8)" height="40" id="EscuelaDeOficios" style="stroke:#A80036;stroke-width:1.5;" width="131" x="219.5" y="353.6"/><ellipse cx="234.5" cy="369.6" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M229.5,370.7563 C229.5,373.2563 231.6406,375.0688 234.5625,375.0688 C235.7969,375.0688 236.9688,374.7719 237.7188,374.2563 C238.3281,373.8344 238.6563,373.4125 238.6563,373.0063 C238.6563,372.5375 238.2344,372.1313 237.7344,372.1313 C237.5,372.1313 237.2813,372.2094 237.0781,372.4125 C236.6406,372.85 236.6406,372.85 236.4688,372.9438 C236.0156,373.1781 235.375,373.3188 234.6094,373.3188 C232.6094,373.3188 231.3281,372.3031 231.3281,370.725 L231.3281,369.6781 C231.3281,367.975 232.5469,366.7719 234.25,366.7719 C234.8281,366.7719 235.4063,366.9125 235.875,367.1625 C236.3438,367.4281 236.5156,367.6156 236.5781,367.975 C236.7031,368.6469 236.9531,368.8969 237.4844,368.8969 C237.7656,368.8969 238.0469,368.7563 238.2344,368.5375 C238.3594,368.3656 238.4063,368.1938 238.4063,367.7563 L238.4063,366.3969 C238.4063,365.975 238.3906,365.8344 238.2656,365.6625 C238.0938,365.4125 237.8125,365.2563 237.4844,365.2563 C237.1719,365.2563 236.9688,365.3656 236.75,365.6313 C235.5781,365.1313 235.1406,365.0219 234.1875,365.0219 C231.5156,365.0219 229.5,367.0375 229.5,369.6625 L229.5,370.7563 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="99" x="248.5" y="373.548">Escuela de oficios</text><line style="stroke:#A80036;stroke-width:1.5;" x1="220.5" x2="349.5" y1="385.6" y2="385.6"/><!--MD5=[cde7bb96e0deaf06c5a9f29d68ab43c5]
+class Becados--><rect codeLine="15" fill="#FEFECE" filter="url(#f2pbtrph3ont8)" height="40" id="Becados" style="stroke:#A80036;stroke-width:1.5;" width="80" x="385" y="353.6"/><ellipse cx="400" cy="369.6" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M395,370.7563 C395,373.2563 397.1406,375.0688 400.0625,375.0688 C401.2969,375.0688 402.4688,374.7719 403.2188,374.2563 C403.8281,373.8344 404.1563,373.4125 404.1563,373.0063 C404.1563,372.5375 403.7344,372.1313 403.2344,372.1313 C403,372.1313 402.7813,372.2094 402.5781,372.4125 C402.1406,372.85 402.1406,372.85 401.9688,372.9438 C401.5156,373.1781 400.875,373.3188 400.1094,373.3188 C398.1094,373.3188 396.8281,372.3031 396.8281,370.725 L396.8281,369.6781 C396.8281,367.975 398.0469,366.7719 399.75,366.7719 C400.3281,366.7719 400.9063,366.9125 401.375,367.1625 C401.8438,367.4281 402.0156,367.6156 402.0781,367.975 C402.2031,368.6469 402.4531,368.8969 402.9844,368.8969 C403.2656,368.8969 403.5469,368.7563 403.7344,368.5375 C403.8594,368.3656 403.9063,368.1938 403.9063,367.7563 L403.9063,366.3969 C403.9063,365.975 403.8906,365.8344 403.7656,365.6625 C403.5938,365.4125 403.3125,365.2563 402.9844,365.2563 C402.6719,365.2563 402.4688,365.3656 402.25,365.6313 C401.0781,365.1313 400.6406,365.0219 399.6875,365.0219 C397.0156,365.0219 395,367.0375 395,369.6625 L395,370.7563 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="48" x="414" y="373.548">Becados</text><line style="stroke:#A80036;stroke-width:1.5;" x1="386" x2="464" y1="385.6" y2="385.6"/><!--MD5=[379d0cccec7f89447d386c05bdc31b2b]
+class Apadrinamiento--><rect codeLine="19" fill="#FEFECE" filter="url(#f2pbtrph3ont8)" height="40" id="Apadrinamiento" style="stroke:#A80036;stroke-width:1.5;" width="119" x="523.5" y="353.6"/><ellipse cx="538.5" cy="369.6" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M533.5,370.7563 C533.5,373.2563 535.6406,375.0688 538.5625,375.0688 C539.7969,375.0688 540.9688,374.7719 541.7188,374.2563 C542.3281,373.8344 542.6563,373.4125 542.6563,373.0063 C542.6563,372.5375 542.2344,372.1313 541.7344,372.1313 C541.5,372.1313 541.2813,372.2094 541.0781,372.4125 C540.6406,372.85 540.6406,372.85 540.4688,372.9438 C540.0156,373.1781 539.375,373.3188 538.6094,373.3188 C536.6094,373.3188 535.3281,372.3031 535.3281,370.725 L535.3281,369.6781 C535.3281,367.975 536.5469,366.7719 538.25,366.7719 C538.8281,366.7719 539.4063,366.9125 539.875,367.1625 C540.3438,367.4281 540.5156,367.6156 540.5781,367.975 C540.7031,368.6469 540.9531,368.8969 541.4844,368.8969 C541.7656,368.8969 542.0469,368.7563 542.2344,368.5375 C542.3594,368.3656 542.4063,368.1938 542.4063,367.7563 L542.4063,366.3969 C542.4063,365.975 542.3906,365.8344 542.2656,365.6625 C542.0938,365.4125 541.8125,365.2563 541.4844,365.2563 C541.1719,365.2563 540.9688,365.3656 540.75,365.6313 C539.5781,365.1313 539.1406,365.0219 538.1875,365.0219 C535.5156,365.0219 533.5,367.0375 533.5,369.6625 L533.5,370.7563 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="87" x="552.5" y="373.548">Apadrinamiento</text><line style="stroke:#A80036;stroke-width:1.5;" x1="524.5" x2="641.5" y1="385.6" y2="385.6"/><!--MD5=[6b6957cc7a224cc119d63cbf47d81879]
+class Apadrinado--><rect codeLine="35" fill="#FEFECE" filter="url(#f2pbtrph3ont8)" height="40" id="Apadrinado" style="stroke:#A80036;stroke-width:1.5;" width="96" x="628" y="494.6"/><ellipse cx="643" cy="510.6" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M638,511.7563 C638,514.2563 640.1406,516.0688 643.0625,516.0688 C644.2969,516.0688 645.4688,515.7719 646.2188,515.2563 C646.8281,514.8344 647.1563,514.4125 647.1563,514.0063 C647.1563,513.5375 646.7344,513.1313 646.2344,513.1313 C646,513.1313 645.7813,513.2094 645.5781,513.4125 C645.1406,513.85 645.1406,513.85 644.9688,513.9438 C644.5156,514.1781 643.875,514.3188 643.1094,514.3188 C641.1094,514.3188 639.8281,513.3031 639.8281,511.725 L639.8281,510.6781 C639.8281,508.975 641.0469,507.7719 642.75,507.7719 C643.3281,507.7719 643.9063,507.9125 644.375,508.1625 C644.8438,508.4281 645.0156,508.6156 645.0781,508.975 C645.2031,509.6469 645.4531,509.8969 645.9844,509.8969 C646.2656,509.8969 646.5469,509.7563 646.7344,509.5375 C646.8594,509.3656 646.9063,509.1938 646.9063,508.7563 L646.9063,507.3969 C646.9063,506.975 646.8906,506.8344 646.7656,506.6625 C646.5938,506.4125 646.3125,506.2563 645.9844,506.2563 C645.6719,506.2563 645.4688,506.3656 645.25,506.6313 C644.0781,506.1313 643.6406,506.0219 642.6875,506.0219 C640.0156,506.0219 638,508.0375 638,510.6625 L638,511.7563 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="64" x="657" y="514.548">Apadrinado</text><line style="stroke:#A80036;stroke-width:1.5;" x1="629" x2="723" y1="526.6" y2="526.6"/><!--MD5=[5b9a9bdeba39484ef3eefa7fb99f1da0]
+class Estudiante_O--><rect codeLine="38" fill="#FEFECE" filter="url(#f2pbtrph3ont8)" height="40" id="Estudiante_O" style="stroke:#A80036;stroke-width:1.5;" width="106" x="7" y="494.6"/><ellipse cx="22" cy="510.6" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M17,511.7563 C17,514.2563 19.1406,516.0688 22.0625,516.0688 C23.2969,516.0688 24.4688,515.7719 25.2188,515.2563 C25.8281,514.8344 26.1563,514.4125 26.1563,514.0063 C26.1563,513.5375 25.7344,513.1313 25.2344,513.1313 C25,513.1313 24.7813,513.2094 24.5781,513.4125 C24.1406,513.85 24.1406,513.85 23.9688,513.9438 C23.5156,514.1781 22.875,514.3188 22.1094,514.3188 C20.1094,514.3188 18.8281,513.3031 18.8281,511.725 L18.8281,510.6781 C18.8281,508.975 20.0469,507.7719 21.75,507.7719 C22.3281,507.7719 22.9063,507.9125 23.375,508.1625 C23.8438,508.4281 24.0156,508.6156 24.0781,508.975 C24.2031,509.6469 24.4531,509.8969 24.9844,509.8969 C25.2656,509.8969 25.5469,509.7563 25.7344,509.5375 C25.8594,509.3656 25.9063,509.1938 25.9063,508.7563 L25.9063,507.3969 C25.9063,506.975 25.8906,506.8344 25.7656,506.6625 C25.5938,506.4125 25.3125,506.2563 24.9844,506.2563 C24.6719,506.2563 24.4688,506.3656 24.25,506.6313 C23.0781,506.1313 22.6406,506.0219 21.6875,506.0219 C19.0156,506.0219 17,508.0375 17,510.6625 L17,511.7563 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="74" x="36" y="514.548">Estudiante_O</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="112" y1="526.6" y2="526.6"/><!--MD5=[7ed969c716fd7a4c494d6591e5cac535]
+class Estudiante_B--><rect codeLine="41" fill="#FEFECE" filter="url(#f2pbtrph3ont8)" height="40" id="Estudiante_B" style="stroke:#A80036;stroke-width:1.5;" width="105" x="439.5" y="494.6"/><ellipse cx="454.5" cy="510.6" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M449.5,511.7563 C449.5,514.2563 451.6406,516.0688 454.5625,516.0688 C455.7969,516.0688 456.9688,515.7719 457.7188,515.2563 C458.3281,514.8344 458.6563,514.4125 458.6563,514.0063 C458.6563,513.5375 458.2344,513.1313 457.7344,513.1313 C457.5,513.1313 457.2813,513.2094 457.0781,513.4125 C456.6406,513.85 456.6406,513.85 456.4688,513.9438 C456.0156,514.1781 455.375,514.3188 454.6094,514.3188 C452.6094,514.3188 451.3281,513.3031 451.3281,511.725 L451.3281,510.6781 C451.3281,508.975 452.5469,507.7719 454.25,507.7719 C454.8281,507.7719 455.4063,507.9125 455.875,508.1625 C456.3438,508.4281 456.5156,508.6156 456.5781,508.975 C456.7031,509.6469 456.9531,509.8969 457.4844,509.8969 C457.7656,509.8969 458.0469,509.7563 458.2344,509.5375 C458.3594,509.3656 458.4063,509.1938 458.4063,508.7563 L458.4063,507.3969 C458.4063,506.975 458.3906,506.8344 458.2656,506.6625 C458.0938,506.4125 457.8125,506.2563 457.4844,506.2563 C457.1719,506.2563 456.9688,506.3656 456.75,506.6313 C455.5781,506.1313 455.1406,506.0219 454.1875,506.0219 C451.5156,506.0219 449.5,508.0375 449.5,510.6625 L449.5,511.7563 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="73" x="468.5" y="514.548">Estudiante_B</text><line style="stroke:#A80036;stroke-width:1.5;" x1="440.5" x2="543.5" y1="526.6" y2="526.6"/><!--MD5=[aa9ebb045d22ec940c587c7180c59f8b]
+class Curso--><rect codeLine="44" fill="#FEFECE" filter="url(#f2pbtrph3ont8)" height="53.1999" id="Curso" style="stroke:#A80036;stroke-width:1.5;" width="65" x="157.5" y="604.6"/><ellipse cx="172.5" cy="620.6" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M167.5,621.7563 C167.5,624.2563 169.6406,626.0688 172.5625,626.0688 C173.7969,626.0688 174.9688,625.7719 175.7188,625.2563 C176.3281,624.8344 176.6563,624.4125 176.6563,624.0063 C176.6563,623.5375 176.2344,623.1313 175.7344,623.1313 C175.5,623.1313 175.2813,623.2094 175.0781,623.4125 C174.6406,623.85 174.6406,623.85 174.4688,623.9438 C174.0156,624.1781 173.375,624.3188 172.6094,624.3188 C170.6094,624.3188 169.3281,623.3031 169.3281,621.725 L169.3281,620.6781 C169.3281,618.975 170.5469,617.7719 172.25,617.7719 C172.8281,617.7719 173.4063,617.9125 173.875,618.1625 C174.3438,618.4281 174.5156,618.6156 174.5781,618.975 C174.7031,619.6469 174.9531,619.8969 175.4844,619.8969 C175.7656,619.8969 176.0469,619.7563 176.2344,619.5375 C176.3594,619.3656 176.4063,619.1938 176.4063,618.7563 L176.4063,617.3969 C176.4063,616.975 176.3906,616.8344 176.2656,616.6625 C176.0938,616.4125 175.8125,616.2563 175.4844,616.2563 C175.1719,616.2563 174.9688,616.3656 174.75,616.6313 C173.5781,616.1313 173.1406,616.0219 172.1875,616.0219 C169.5156,616.0219 167.5,618.0375 167.5,620.6625 L167.5,621.7563 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="33" x="186.5" y="624.548">Curso</text><line style="stroke:#A80036;stroke-width:1.5;" x1="158.5" x2="221.5" y1="636.6" y2="636.6"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="22" x="163.5" y="650.8189">titulo</text><!--MD5=[eddcea32a693270f42ca5aec96af9fac]
+class Trabajador--><rect codeLine="48" fill="#FEFECE" filter="url(#f2pbtrph3ont8)" height="40" id="Trabajador" style="stroke:#A80036;stroke-width:1.5;" width="92" x="396" y="727.6"/><ellipse cx="411" cy="743.6" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M406,744.7563 C406,747.2563 408.1406,749.0688 411.0625,749.0688 C412.2969,749.0688 413.4688,748.7719 414.2188,748.2563 C414.8281,747.8344 415.1563,747.4125 415.1563,747.0063 C415.1563,746.5375 414.7344,746.1313 414.2344,746.1313 C414,746.1313 413.7813,746.2094 413.5781,746.4125 C413.1406,746.85 413.1406,746.85 412.9688,746.9438 C412.5156,747.1781 411.875,747.3188 411.1094,747.3188 C409.1094,747.3188 407.8281,746.3031 407.8281,744.725 L407.8281,743.6781 C407.8281,741.975 409.0469,740.7719 410.75,740.7719 C411.3281,740.7719 411.9063,740.9125 412.375,741.1625 C412.8438,741.4281 413.0156,741.6156 413.0781,741.975 C413.2031,742.6469 413.4531,742.8969 413.9844,742.8969 C414.2656,742.8969 414.5469,742.7563 414.7344,742.5375 C414.8594,742.3656 414.9063,742.1938 414.9063,741.7563 L414.9063,740.3969 C414.9063,739.975 414.8906,739.8344 414.7656,739.6625 C414.5938,739.4125 414.3125,739.2563 413.9844,739.2563 C413.6719,739.2563 413.4688,739.3656 413.25,739.6313 C412.0781,739.1313 411.6406,739.0219 410.6875,739.0219 C408.0156,739.0219 406,741.0375 406,743.6625 L406,744.7563 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="60" x="425" y="747.548">Trabajador</text><line style="stroke:#A80036;stroke-width:1.5;" x1="397" x2="487" y1="759.6" y2="759.6"/><!--MD5=[e469c18e79053c34a30eeb6b0a14ee22]
+class AsignaturaApadrinado--><rect codeLine="52" fill="#FEFECE" filter="url(#f2pbtrph3ont8)" height="53.1999" id="AsignaturaApadrinado" style="stroke:#A80036;stroke-width:1.5;" width="155" x="417.5" y="868.6"/><ellipse cx="432.5" cy="884.6" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M427.5,885.7563 C427.5,888.2563 429.6406,890.0688 432.5625,890.0688 C433.7969,890.0688 434.9688,889.7719 435.7188,889.2563 C436.3281,888.8344 436.6563,888.4125 436.6563,888.0063 C436.6563,887.5375 436.2344,887.1313 435.7344,887.1313 C435.5,887.1313 435.2813,887.2094 435.0781,887.4125 C434.6406,887.85 434.6406,887.85 434.4688,887.9438 C434.0156,888.1781 433.375,888.3188 432.6094,888.3188 C430.6094,888.3188 429.3281,887.3031 429.3281,885.725 L429.3281,884.6781 C429.3281,882.975 430.5469,881.7719 432.25,881.7719 C432.8281,881.7719 433.4063,881.9125 433.875,882.1625 C434.3438,882.4281 434.5156,882.6156 434.5781,882.975 C434.7031,883.6469 434.9531,883.8969 435.4844,883.8969 C435.7656,883.8969 436.0469,883.7563 436.2344,883.5375 C436.3594,883.3656 436.4063,883.1938 436.4063,882.7563 L436.4063,881.3969 C436.4063,880.975 436.3906,880.8344 436.2656,880.6625 C436.0938,880.4125 435.8125,880.2563 435.4844,880.2563 C435.1719,880.2563 434.9688,880.3656 434.75,880.6313 C433.5781,880.1313 433.1406,880.0219 432.1875,880.0219 C429.5156,880.0219 427.5,882.0375 427.5,884.6625 L427.5,885.7563 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="123" x="446.5" y="888.548">AsignaturaApadrinado</text><line style="stroke:#A80036;stroke-width:1.5;" x1="418.5" x2="571.5" y1="900.6" y2="900.6"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="78" x="423.5" y="914.8189">titulo VARCHAR</text><!--MD5=[bb00b0d56f38351402ffc4144f14f916]
+class NotaApadrinado--><rect codeLine="56" fill="#FEFECE" filter="url(#f2pbtrph3ont8)" height="53.1999" id="NotaApadrinado" style="stroke:#A80036;stroke-width:1.5;" width="122" x="586" y="721"/><ellipse cx="601" cy="737" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M596,738.1563 C596,740.6563 598.1406,742.4688 601.0625,742.4688 C602.2969,742.4688 603.4688,742.1719 604.2188,741.6563 C604.8281,741.2344 605.1563,740.8125 605.1563,740.4063 C605.1563,739.9375 604.7344,739.5313 604.2344,739.5313 C604,739.5313 603.7813,739.6094 603.5781,739.8125 C603.1406,740.25 603.1406,740.25 602.9688,740.3438 C602.5156,740.5781 601.875,740.7188 601.1094,740.7188 C599.1094,740.7188 597.8281,739.7031 597.8281,738.125 L597.8281,737.0781 C597.8281,735.375 599.0469,734.1719 600.75,734.1719 C601.3281,734.1719 601.9063,734.3125 602.375,734.5625 C602.8438,734.8281 603.0156,735.0156 603.0781,735.375 C603.2031,736.0469 603.4531,736.2969 603.9844,736.2969 C604.2656,736.2969 604.5469,736.1563 604.7344,735.9375 C604.8594,735.7656 604.9063,735.5938 604.9063,735.1563 L604.9063,733.7969 C604.9063,733.375 604.8906,733.2344 604.7656,733.0625 C604.5938,732.8125 604.3125,732.6563 603.9844,732.6563 C603.6719,732.6563 603.4688,732.7656 603.25,733.0313 C602.0781,732.5313 601.6406,732.4219 600.6875,732.4219 C598.0156,732.4219 596,734.4375 596,737.0625 L596,738.1563 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="90" x="615" y="740.948">NotaApadrinado</text><line style="stroke:#A80036;stroke-width:1.5;" x1="587" x2="707" y1="753" y2="753"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="42" x="592" y="767.2189">nota INT</text><!--MD5=[9b718534bf13b2d3dd68c410087daf7c]
+class AsignaturaOficios--><rect codeLine="60" fill="#FEFECE" filter="url(#f2pbtrph3ont8)" height="53.1999" id="AsignaturaOficios" style="stroke:#A80036;stroke-width:1.5;" width="128" x="126" y="868.6"/><ellipse cx="141" cy="884.6" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M136,885.7563 C136,888.2563 138.1406,890.0688 141.0625,890.0688 C142.2969,890.0688 143.4688,889.7719 144.2188,889.2563 C144.8281,888.8344 145.1563,888.4125 145.1563,888.0063 C145.1563,887.5375 144.7344,887.1313 144.2344,887.1313 C144,887.1313 143.7813,887.2094 143.5781,887.4125 C143.1406,887.85 143.1406,887.85 142.9688,887.9438 C142.5156,888.1781 141.875,888.3188 141.1094,888.3188 C139.1094,888.3188 137.8281,887.3031 137.8281,885.725 L137.8281,884.6781 C137.8281,882.975 139.0469,881.7719 140.75,881.7719 C141.3281,881.7719 141.9063,881.9125 142.375,882.1625 C142.8438,882.4281 143.0156,882.6156 143.0781,882.975 C143.2031,883.6469 143.4531,883.8969 143.9844,883.8969 C144.2656,883.8969 144.5469,883.7563 144.7344,883.5375 C144.8594,883.3656 144.9063,883.1938 144.9063,882.7563 L144.9063,881.3969 C144.9063,880.975 144.8906,880.8344 144.7656,880.6625 C144.5938,880.4125 144.3125,880.2563 143.9844,880.2563 C143.6719,880.2563 143.4688,880.3656 143.25,880.6313 C142.0781,880.1313 141.6406,880.0219 140.6875,880.0219 C138.0156,880.0219 136,882.0375 136,884.6625 L136,885.7563 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="96" x="155" y="888.548">AsignaturaOficios</text><line style="stroke:#A80036;stroke-width:1.5;" x1="127" x2="253" y1="900.6" y2="900.6"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="78" x="132" y="914.8189">titulo VARCHAR</text><!--MD5=[4dfb41f7e61394ad69fd94467c7bf988]
+class NotaOficios--><rect codeLine="63" fill="#FEFECE" filter="url(#f2pbtrph3ont8)" height="53.1999" id="NotaOficios" style="stroke:#A80036;stroke-width:1.5;" width="95" x="242.5" y="721"/><ellipse cx="257.5" cy="737" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M252.5,738.1563 C252.5,740.6563 254.6406,742.4688 257.5625,742.4688 C258.7969,742.4688 259.9688,742.1719 260.7188,741.6563 C261.3281,741.2344 261.6563,740.8125 261.6563,740.4063 C261.6563,739.9375 261.2344,739.5313 260.7344,739.5313 C260.5,739.5313 260.2813,739.6094 260.0781,739.8125 C259.6406,740.25 259.6406,740.25 259.4688,740.3438 C259.0156,740.5781 258.375,740.7188 257.6094,740.7188 C255.6094,740.7188 254.3281,739.7031 254.3281,738.125 L254.3281,737.0781 C254.3281,735.375 255.5469,734.1719 257.25,734.1719 C257.8281,734.1719 258.4063,734.3125 258.875,734.5625 C259.3438,734.8281 259.5156,735.0156 259.5781,735.375 C259.7031,736.0469 259.9531,736.2969 260.4844,736.2969 C260.7656,736.2969 261.0469,736.1563 261.2344,735.9375 C261.3594,735.7656 261.4063,735.5938 261.4063,735.1563 L261.4063,733.7969 C261.4063,733.375 261.3906,733.2344 261.2656,733.0625 C261.0938,732.8125 260.8125,732.6563 260.4844,732.6563 C260.1719,732.6563 259.9688,732.7656 259.75,733.0313 C258.5781,732.5313 258.1406,732.4219 257.1875,732.4219 C254.5156,732.4219 252.5,734.4375 252.5,737.0625 L252.5,738.1563 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="63" x="271.5" y="740.948">NotaOficios</text><line style="stroke:#A80036;stroke-width:1.5;" x1="243.5" x2="336.5" y1="753" y2="753"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="42" x="248.5" y="767.2189">nota INT</text><ellipse cx="135" cy="747.6" fill="#000000" rx="2" ry="2" style="stroke:none;stroke-width:1.0;"/><ellipse cx="549" cy="747.6" fill="#000000" rx="2" ry="2" style="stroke:none;stroke-width:1.0;"/><path d="M474,6 L474,94.0001 L716,94.0001 L716,16 L706,6 L474,6 " fill="#FBFB77" filter="url(#f2pbtrph3ont8)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M706,6 L706,16 L716,16 L706,6 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="32" x="480" y="23.077">RN01</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="74" x="484" y="38.677">La misión de</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="213" x="484" y="54.277">apadrinamiento acaba a los 18 años,</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="209" x="484" y="69.8771">después, el joven puede elegir entre</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="97" x="484" y="85.4771">ser becado o no.</text><path d="M243.5,486.2 L243.5,543 L380.5,543 L380.5,496.2 L370.5,486.2 L243.5,486.2 " fill="#FBFB77" filter="url(#f2pbtrph3ont8)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M370.5,486.2 L370.5,496.2 L380.5,496.2 L370.5,486.2 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="32" x="249.5" y="503.277">RN03</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="108" x="253.5" y="518.877">La nota deberá ser</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="73" x="253.5" y="534.477">entre 0 y 10.</text><!--MD5=[671707dca2f6182764fb813bfcd787cc]
+link EscuelaDeOficios to Becados--><!--MD5=[671707dca2f6182764fb813bfcd787cc]
+link EscuelaDeOficios to Becados--><!--MD5=[4d9d4f2f2566dcd4d3f0db8680f864bc]
+link Becados to Apadrinamiento--><!--MD5=[b132dced5492cdf18e44225218581432]
+reverse link Mision to EscuelaDeOficios--><path codeLine="28" d="M414.54,249.46 C377.63,284.56 331.57,328.33 305.5,353.11 " fill="none" id="Mision-backto-EscuelaDeOficios" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="409.3,244.79,428.62,236.08,418.95,254.93,409.3,244.79" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[b7c0bb2675b343e868e9d03068427409]
+reverse link Mision to Becados--><path codeLine="29" d="M455.43,255.66 C446.6,289.57 436.14,329.77 430.07,353.11 " fill="none" id="Mision-backto-Becados" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="448.6,254.1,460.41,236.5,462.15,257.62,448.6,254.1" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[ef92026ec822dc9c0cfd376239d075af]
+reverse link Mision to Apadrinamiento--><path codeLine="30" d="M507.23,252.99 C529.34,287.89 556.17,330.25 571.25,354.04 " fill="none" id="Mision-backto-Apadrinamiento" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="501.46,256.96,496.67,236.32,513.28,249.47,501.46,256.96" style="stroke:#A80036;stroke-width:1.0;"/><path d="M542.03,269.6 L542.03,294.6 L677.03,294.6 L677.03,279.6 L667.03,269.6 L542.03,269.6 " fill="#FBFB77" filter="url(#f2pbtrph3ont8)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M667.03,269.6 L667.03,279.6 L677.03,279.6 L667.03,269.6 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="114" x="548.03" y="286.677">{completa, disjunta}</text><!--MD5=[917071d28dc5fdc0bd30616051f51dcf]
+link Trabajador to AsignaturaOficios--><path codeLine="67" d="M409.31,767.47 C364.57,793.31 284.1,839.77 234.07,868.66 " fill="none" id="Trabajador-AsignaturaOficios" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="20" x="368.4986" y="770.7236">1..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="239.7223" y="857.0912">*</text><!--MD5=[992e2d481b798edc05577ea6a46847cc]
+link Curso to AsignaturaOficios--><path codeLine="69" d="M190,657.22 C190,707.17 190,818.47 190,868.67 " fill="none" id="Curso-AsignaturaOficios" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="181.8125" y="678.2926">*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="184.3594" y="857.1037">*</text><!--MD5=[e25cd56f7634448b472529849e9273b3]
+link Trabajador to AsignaturaApadrinado--><path codeLine="70" d="M448.82,767.32 C458.24,793.19 475.27,839.93 485.81,868.86 " fill="none" id="Trabajador-AsignaturaApadrinado" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="20" x="422.937" y="787.559">1..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="477.6683" y="856.9232">*</text><!--MD5=[8138b0ec71e08469948e0fa8f1f0f087]
+link Apadrinamiento to Apadrinado--><path codeLine="73" d="M595.54,393.35 C613.29,419.88 645.56,468.1 663.36,494.71 " fill="none" id="Apadrinamiento-Apadrinado" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="605.264" y="413.6445">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="653.5341" y="483.1521">*</text><!--MD5=[0d430526d13b92f6f2e10123d7d08325]
+link EscuelaDeOficios to Curso--><path codeLine="75" d="M271.13,393.97 C257.77,413.47 237.9,444.84 226,474.6 C208.41,518.6 198.26,573.2 193.45,604.61 " fill="none" id="EscuelaDeOficios-Curso" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="188.6934" y="593.0283">*</text><!--MD5=[98963e0e6d0d97a0004254473c77dc91]
+link Becados to Estudiante_B--><path codeLine="76" d="M434.32,393.93 C447.19,420.63 470.26,468.5 482.98,494.88 " fill="none" id="Becados-Estudiante_B" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="474.164" y="483.0398">*</text><!--MD5=[78fd1b09984b3027dfbeeb881a6d1c7b]
+link Estudiante_O to apoint28--><path d="M66.14,534.5 C83.07,586.66 129.53,729.74 134.56,745.23 " fill="none" id="Estudiante_O-apoint28" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="67.874" y="555.072">*</text><!--MD5=[bdc319c9c68514cfb0ec78a7b2e49f3f]
+link apoint28 to AsignaturaOficios--><path d="M135.48,749.86 C139.34,760.08 165.82,830.12 180.4,868.71 " fill="none" id="apoint28-AsignaturaOficios" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="172.2994" y="857.154">*</text><!--MD5=[f7df70f1e1e1d176566dc875acd6cdf4]
+link apoint28 to NotaOficios--><path d="M137.42,747.6 C172.29,747.6 207.15,747.6 242.02,747.6 " fill="none" id="apoint28-NotaOficios" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><!--MD5=[0a0a016cb6f059bb4f0adda2962d90b3]
+link Apadrinado to apoint33--><path d="M665.15,534.56 C645.57,568.87 603.2,643.67 569,707.6 C561.1,722.36 552.01,740.55 549.61,745.38 " fill="none" id="Apadrinado-apoint33" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="635.4525" y="555.243">*</text><!--MD5=[38825aaed7ef76a66d42d633ac12242c]
+link apoint33 to AsignaturaApadrinado--><path d="M548.53,749.86 C544.74,760.08 518.74,830.12 504.42,868.71 " fill="none" id="apoint33-AsignaturaApadrinado" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="501.1932" y="857.154">*</text><!--MD5=[e48a991c21910450c8abc048220a7da7]
+link apoint33 to NotaApadrinado--><path d="M551.3,747.6 C562.76,747.6 574.23,747.6 585.69,747.6 " fill="none" id="apoint33-NotaApadrinado" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><!--MD5=[ad84c1143c742e4d462b57c889b2bd34]
+link RN01 to Mision--><path codeLine="83" d="M557.46,94.23 C540.78,113.44 521.29,135.89 505.04,154.6 " fill="none" id="RN01-Mision" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><!--MD5=[3a7a2e44fbab233d197effc2bf9f68e4]
+link RN01 to Apadrinado--><path codeLine="84" d="M622,94.41 C646.3,136.22 680.23,202.13 694,264.6 C712.62,349.04 691.29,453.09 680.96,494.91 " fill="none" id="RN01-Apadrinado" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><!--MD5=[94aaa764187d6737ab91ef2edd5a9000]
+link RN03 to NotaApadrinado--><path codeLine="89" d="M352.41,543.46 C417.75,588.52 545.7,676.75 609.28,720.59 " fill="none" id="RN03-NotaApadrinado" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><!--MD5=[f91cf0fd6d6ec9aa9b0dcd240331a8b8]
+link RN03 to NotaOficios--><path codeLine="90" d="M309.35,543.46 C305.05,588.58 296.63,676.99 292.46,720.77 " fill="none" id="RN03-NotaOficios" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><!--MD5=[7da734a00be0f2023d2bf87faba4a67f]
+link Apadrinamiento to EscuelaDeOficios--><!--MD5=[cd958dc60557c0c578778b618b691f7e]
+@startuml hola
+hide methods
+skinparam classAttributeIconSize 0
+
+
+class Mision{
+    titulo VARCHAR
+    localidad VARCHAR
+    descripcion VARCHAR
+}
+
+class "Escuela de oficios" as EscuelaDeOficios{
+    
+}
+
+class Becados{
+}
+
+
+class Apadrinamiento{
+}
+
+'Lo que viene a continuacion es para la estetica del diagrama:
+EscuelaDeOficios -[hidden]right- Becados
+Becados -[hidden]right- Apadrinamiento
+
+
+'Subclases de Mision:
+Mision <|- - EscuelaDeOficios
+Mision <|- - Becados
+Mision <|- - Apadrinamiento
+
+'Restricción de cobertura:
+note on link : {completa, disjunta}
+
+class Apadrinado{
+}
+
+class Estudiante_O{
+}
+
+class Estudiante_B{
+}
+
+class Curso {
+    titulo
+}
+
+class Trabajador{
+}
+
+
+class AsignaturaApadrinado{
+    titulo VARCHAR
+}
+
+class NotaApadrinado{
+    nota INT 
+}
+
+class AsignaturaOficios{
+    titulo VARCHAR
+}
+class NotaOficios{
+    nota INT 
+}
+
+Trabajador "1..*"- -"*" AsignaturaOficios
+Estudiante_O "*"- -"*" AsignaturaOficios
+Curso "*"- -"*" AsignaturaOficios
+Trabajador "1..*"- -"*" AsignaturaApadrinado
+Apadrinado "*"- -"*" AsignaturaApadrinado
+
+Apadrinamiento "1"- -"*" Apadrinado
+
+EscuelaDeOficios - -"*" Curso
+Becados - -"*" Estudiante_B
+
+(AsignaturaOficios, Estudiante_O) .. NotaOficios
+(AsignaturaApadrinado, Apadrinado) .. NotaApadrinado
+
+'Regla de negocio 01:
+note "RN01\n La misión de \n apadrinamiento acaba a los 18 años, \n después, el joven puede elegir entre \n ser becado o no." as RN01
+RN01 .. Mision
+RN01 .. Apadrinado
+
+
+'Regla de negocio 03:
+note "RN03\n La nota deberá ser \n entre 0 y 10." as RN03
+RN03 .. NotaApadrinado
+RN03 .. NotaOficios
+
+
+'Lo que viene a continuacion es para la estetica del diagrama:
+Apadrinamiento -[hidden]right- EscuelaDeOficios
+EscuelaDeOficios -[hidden]right- Becados
+@enduml
+
+@startuml hola
+hide methods
+skinparam classAttributeIconSize 0
+
+
+class Mision{
+    titulo VARCHAR
+    localidad VARCHAR
+    descripcion VARCHAR
+}
+
+class "Escuela de oficios" as EscuelaDeOficios{
+    
+}
+
+class Becados{
+}
+
+
+class Apadrinamiento{
+}
+
+EscuelaDeOficios -[hidden]right- Becados
+Becados -[hidden]right- Apadrinamiento
+
+
+Mision <|- - EscuelaDeOficios
+Mision <|- - Becados
+Mision <|- - Apadrinamiento
+
+note on link : {completa, disjunta}
+
+class Apadrinado{
+}
+
+class Estudiante_O{
+}
+
+class Estudiante_B{
+}
+
+class Curso {
+    titulo
+}
+
+class Trabajador{
+}
+
+
+class AsignaturaApadrinado{
+    titulo VARCHAR
+}
+
+class NotaApadrinado{
+    nota INT 
+}
+
+class AsignaturaOficios{
+    titulo VARCHAR
+}
+class NotaOficios{
+    nota INT 
+}
+
+Trabajador "1..*"- -"*" AsignaturaOficios
+Estudiante_O "*"- -"*" AsignaturaOficios
+Curso "*"- -"*" AsignaturaOficios
+Trabajador "1..*"- -"*" AsignaturaApadrinado
+Apadrinado "*"- -"*" AsignaturaApadrinado
+
+Apadrinamiento "1"- -"*" Apadrinado
+
+EscuelaDeOficios - -"*" Curso
+Becados - -"*" Estudiante_B
+
+(AsignaturaOficios, Estudiante_O) .. NotaOficios
+(AsignaturaApadrinado, Apadrinado) .. NotaApadrinado
+
+note "RN01\n La misión de \n apadrinamiento acaba a los 18 años, \n después, el joven puede elegir entre \n ser becado o no." as RN01
+RN01 .. Mision
+RN01 .. Apadrinado
+
+
+note "RN03\n La nota deberá ser \n entre 0 y 10." as RN03
+RN03 .. NotaApadrinado
+RN03 .. NotaOficios
+
+
+Apadrinamiento -[hidden]right- EscuelaDeOficios
+EscuelaDeOficios -[hidden]right- Becados
+@enduml
+
+PlantUML version 1.2021.00(Sun Jan 10 11:25:05 CET 2021)
+(MIT source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
