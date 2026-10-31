@@ -1,0 +1,25 @@
+@startuml
+object "<u>laura : Empleado</u>" as laura {
+  nombre = "Laura"
+}
+
+object "<u>carlos : Benefactor</u>" as carlos {
+  nombre = "Carlos"
+}
+
+object "<u>accionMkt1 : AccionMarketing</u>" as accionMkt1 {
+  valoracion = "MUY_BIEN"
+}
+
+object "<u>trabajadorLocal1 : TrabajadorLocal</u>" as trabajadorLocal1 {
+  contratoMensual = 90
+}
+
+object "<u>pagoSueldo1 : PagoSueldo</u>" as pagoSueldo1 {
+  monto = 270
+}
+
+laura -- accionMkt1 : ejecuta
+accionMkt1 -- carlos : dirigida a
+pagoSueldo1 -- trabajadorLocal1 : pagado a
+@enduml

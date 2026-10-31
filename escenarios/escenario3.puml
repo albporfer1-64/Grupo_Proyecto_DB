@@ -1,0 +1,38 @@
+@startuml
+object "<u>proyectoPozo : Proyecto</u>" as proyectoPozo {
+  nombre = "Construcción Pozo"
+  capitalEstimado = 5000
+}
+
+object "<u>pobladoCancun : Poblado</u>" as pobladoCancun {
+  nombre = "Cancún"
+}
+
+object "<u>misionApadrinado : Mision</u>" as misionApadrinado {
+  tipo = "Apadrinado"
+}
+
+object "<u>misionEscuela : Mision</u>" as misionEscuela {
+  tipo = "Escuela de Oficios"
+}
+
+object "<u>excavacion : Actividad</u>" as excavacion {
+  nombre = "Excavación"
+  coste = 2000
+}
+
+object "<u>empresaSol : Benefactor</u>" as empresaSol {
+  nombre = "Empresa Sol S.A."
+}
+
+object "<u>aportacion1 : AportacionDirecta</u>" as aportacion1 {
+  monto = 1500
+}
+
+proyectoPozo -- pobladoCancun : ubicado en
+proyectoPozo -- misionApadrinado : ligado a
+proyectoPozo -- misionEscuela : ligado a
+excavacion -- proyectoPozo : pertenece a
+empresaSol -- aportacion1 : realiza
+aportacion1 -- proyectoPozo : destinada a
+@enduml

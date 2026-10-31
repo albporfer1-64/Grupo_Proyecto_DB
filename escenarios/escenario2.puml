@@ -1,0 +1,21 @@
+@startuml escenario2
+object "<u>bakari : Apadrinado</u>" as bakari {
+  nombre = "Bakari Sow"
+}
+
+object "<u>paulYao : TrabajadorLocal</u>" as paulYao {
+  nombre = "Paul Yao"
+}
+
+object "<u>mates3 : Asignatura</u>" as mates3 {
+  nombre = "Mates 3"
+}
+
+object "<u>matricula1 : Matricula</u>" as matricula1 {
+  nota = 8
+}
+
+paulYao -- mates3 : imparte
+bakari -- matricula1 : cursa
+matricula1 -- mates3 : corresponde a
+@enduml

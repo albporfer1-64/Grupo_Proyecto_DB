@@ -1,0 +1,22 @@
+@startuml
+object "<u>juanPerez : Benefactor</u>" as juanPerez {
+  nombre = "Juan Pérez"
+  tipo = INDIVIDUO
+}
+
+object "<u>mamadou : Apadrinado</u>" as mamadou {
+  nombre = "Mamadou Kone"
+}
+
+object "<u>contrato1 : ContratoApadrinamiento</u>" as contrato1 {
+  cuota = 30
+}
+
+object "<u>pago1 : Pago</u>" as pago1 {
+  importe = 30
+}
+
+juanPerez -- contrato1 : firma
+contrato1 -- mamadou : apadrina a
+pago1 -- contrato1 : registrado en
+@enduml
