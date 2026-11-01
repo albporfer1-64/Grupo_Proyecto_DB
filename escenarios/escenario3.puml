@@ -1,38 +1,47 @@
 @startuml
-object "<u>proyectoPozo : Proyecto</u>" as proyectoPozo {
-  nombre = "Construcción Pozo"
+object "proyecto : Proyecto" as proyecto {
+  titulo = "Construcción Pozo"
+  contenido = "Excavación y creación de pozo de agua potable"
   capitalEstimado = 5000
+  fechaInicio = "2023-10-01"
+  fechaFinal = "2024-02-28"
 }
-
-object "<u>pobladoCancun : Poblado</u>" as pobladoCancun {
-  nombre = "Cancún"
-}
-
-object "<u>misionApadrinado : Mision</u>" as misionApadrinado {
-  tipo = "Apadrinado"
-}
-
-object "<u>misionEscuela : Mision</u>" as misionEscuela {
-  tipo = "Escuela de Oficios"
-}
-
-object "<u>excavacion : Actividad</u>" as excavacion {
-  nombre = "Excavación"
+object "excavacion : ActividadProyecto" as excavacion {
+  titulo = "Excavación"
+  descripcion = "Movimiento de tierras en la zona designada"
   coste = 2000
+  fechaInicio = "2023-10-05"
+  fechaFinal = "2023-10-20"
 }
-
-object "<u>empresaSol : Benefactor</u>" as empresaSol {
+object "misionApad : Apadrinamiento" as misionApad {
+  titulo = "Misión Apadrinados Cancún"
+  localidad = "Cancún"
+  descripcion = "Apoyo escolar a menores"
+}
+object "misionEscuela : EscuelaDeOficios" as misionEscuela {
+  titulo = "Misión Oficios Cancún"
+  localidad = "Cancún"
+  descripcion = "Formación profesional"
+}
+object "empresaSol : Benefactor" as empresaSol {
   nombre = "Empresa Sol S.A."
+  apellidos = NULL
+  fechaNacimiento = NULL
+  NIF = "B98765432"
+  telefono = 910000000
+  horasPosiblesLlamadas = "09:00-14:00"
+  correo = "contacto@empresasol.es"
+  individuo = false
+  numCuenta = 9876543210
+}
+object "aportacion : Aportacion_B" as aportacion {
+  cantidad = 1500
+  fecha = "2023-10-10"
 }
 
-object "<u>aportacion1 : AportacionDirecta</u>" as aportacion1 {
-  monto = 1500
-}
-
-proyectoPozo -- pobladoCancun : ubicado en
-proyectoPozo -- misionApadrinado : ligado a
-proyectoPozo -- misionEscuela : ligado a
-excavacion -- proyectoPozo : pertenece a
-empresaSol -- aportacion1 : realiza
-aportacion1 -- proyectoPozo : destinada a
+proyecto *-- excavacion
+misionApad -- proyecto
+misionEscuela -- proyecto
+empresaSol -- aportacion
+aportacion -- proyecto
 @enduml
