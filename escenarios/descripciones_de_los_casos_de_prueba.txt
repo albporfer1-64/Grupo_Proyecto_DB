@@ -1,0 +1,31 @@
+# Casos de Prueba - Proyecto Atachiarare
+
+## Escenario 1: Alta de un apadrinamiento y registro de un pago
+**Descripción:** 
+El benefactor Juan Pérez (registrado con sus datos personales, marcando la opción de individuo y su número de cuenta) firma un contrato de apadrinamiento para el niño Mamadou Kone (del cual se registran sus datos personales, los de su tutor y su localidad). A través del objeto `ContratoPadrino` se establece una aportación de 30 € con una fecha de inicio y fin. Posteriormente, se emite y registra un `Pago` directo asociado a ese apadrinado por la cantidad de 30 €.
+**Requisitos validados:** RG01, RG02, RI01, RI02, RI05, RC03, RC07, RN02
+**Clases implicadas:** Benefactor, Apadrinado, ContratoPadrino (Clase de Asociación), Pago (Clase de Asociación).
+
+## Escenario 2: Seguimiento académico en la Escuela de Oficios
+**Descripción:** 
+Bakari Sow es un niño que consta en el sistema como `Apadrinado`. Está cursando la `AsignaturaApadrinado` llamada "Mates 3", la cual es impartida por el `Trabajador` local Paul Yao (registrado con sus datos de contacto y NIF). Tras la evaluación, se crea una instancia de la clase de asociación `NotaApadrinado` que relaciona a Bakari con la asignatura "Mates 3", registrando que ha obtenido una nota de 8.
+**Requisitos validados:** RG04, RI01, RI03, RC05, RC06 
+**Clases implicadas:** Apadrinado, Trabajador, AsignaturaApadrinado, NotaApadrinado (Clase de Asociación).
+
+## Escenario 3: Gestión de proyectos y aportaciones de benefactores
+**Descripción:** 
+La asociación inicia el `Proyecto` "Construcción Pozo" con un capital estimado de 5000 €, ligado de forma simultánea a dos misiones: `Apadrinamiento` y `EscuelaDeOficios` en la localidad de Cancún. Dentro de este proyecto, se registra una `ActividadProyecto` dependiente llamada "Excavación" con un coste de 2000 €. Por otro lado, la entidad benefactora Empresa Sol S.A. (registrada como benefactor no individuo) realiza una `Aportacion_B` de 1500 € destinada directamente a dicho proyecto.
+**Requisitos validados:** RG05, RI02, RI04, RI05, RI06, RC01, RC02 
+**Clases implicadas:** Proyecto, ActividadProyecto, Apadrinamiento (Misión), EscuelaDeOficios (Misión), Benefactor, Aportacion_B (Clase de Asociación).
+
+## Escenario 4: Transición de apadrinado a beca de estudios
+**Descripción:** 
+Amina Diop cumple 18 años, por lo que finaliza su etapa en la misión de apadrinamiento. En el sistema, se actualiza su registro como `Apadrinado` rellenando el atributo `fechaFinApadrinado` con la fecha correspondiente. Al decidir continuar su formación en la Escuela de Oficios, se crea para ella un nuevo registro independiente como `Estudiante_O`, heredando de Persona sus datos básicos y añadiendo su correo y teléfono actual. Como estudiante de oficios, Amina se inscribe a la `AsignaturaOficios` "Materiales", la cual pertenece estructuralmente al `Curso` general de "Mecánica" (que también contiene asignaturas como "Teoría del Movimiento").
+**Requisitos validados:** RG03, RI01, RC04, RN 01
+**Clases implicadas:** Apadrinado, Estudiante_O, Curso, AsignaturaOficios.
+
+## Escenario 5: Gestión de pagos a trabajadores y acciones de marketing
+**Descripción:** 
+La `Empleado` Laura (con el rol de Marketing) ejecuta una acción de fidelización comunicándose por teléfono con el `Benefactor` Carlos. Esto queda registrado en una instancia de `AccionesMarketing`, detallando el contenido de la llamada y marcando la valoración como "MUY_BIEN". Paralelamente, en la gestión del poblado, se documenta el trabajo del `Trabajador` Kwami Mensah asociado a la misión `EscuelaDeOficios`. Se registra su `ContratoTrabajador` por un sueldo base de 90 €/mensuales y se anota un `SueldoPagado` acumulado equivalente a 270 €.
+**Requisitos validados:** RG05, RI03, RI07, RI08, RC01
+**Clases implicadas:** Empleado, Benefactor, AccionesMarketing (Clase de Asociación), Trabajador, EscuelaDeOficios (Misión), ContratoTrabajador (Clase de Asociación), SueldoPagado (Clase de Asociación).
