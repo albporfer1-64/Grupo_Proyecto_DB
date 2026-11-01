@@ -1,25 +1,58 @@
 @startuml
-object "<u>laura : Empleado</u>" as laura {
+object "laura : Empleado" as laura {
   nombre = "Laura"
+  apellidos = "Gómez"
+  fechaNacimiento = "1992-11-03"
+  NIF = "87654321B"
+  correo = "laura.gomez@atachiarare.es"
+  telefono = 611223344
+  rol = "Marketing"
 }
-
-object "<u>carlos : Benefactor</u>" as carlos {
+object "carlos : Benefactor" as carlos {
   nombre = "Carlos"
+  apellidos = "Ruiz"
+  fechaNacimiento = "1975-02-18"
+  NIF = "23456789C"
+  telefono = 622334455
+  horasPosiblesLlamadas = "10:00-13:00"
+  correo = "carlos.ruiz@email.com"
+  individuo = true
+  numCuenta = 1122334455
+}
+object "accion : AccionesMarketing" as accion {
+  hora = "11:30:00"
+  fecha = "2023-11-01"
+  contenido = "Llamada de seguimiento semestral"
+  metodoComunicacion = "Teléfono"
+  valoracion_E = "MUY_BIEN"
+}
+object "trabajador : Trabajador" as trabajador {
+  nombre = "Kwami"
+  apellidos = "Mensah"
+  fechaNacimiento = "1988-09-30"
+  NIF = "TG987654"
+  correo = "kwami.mensah@escuela.tg"
+  telefono = 228778899
+}
+object "mision : EscuelaDeOficios" as mision {
+  titulo = "Oficios Togo Central"
+  localidad = "Sokodé"
+  descripcion = "Escuela de carpintería y mecánica"
+}
+object "contrato : ContratoTrabajador" as contrato {
+  sueldo = 90
+  fechaInicio = "2023-01-01"
+  fechaFinal = "2023-12-31"
+}
+object "pagoSueldo : SueldoPagado" as pagoSueldo {
+  cantidad = 270
+  fecha = "2023-10-31"
 }
 
-object "<u>accionMkt1 : AccionMarketing</u>" as accionMkt1 {
-  valoracion = "MUY_BIEN"
-}
-
-object "<u>trabajadorLocal1 : TrabajadorLocal</u>" as trabajadorLocal1 {
-  contratoMensual = 90
-}
-
-object "<u>pagoSueldo1 : PagoSueldo</u>" as pagoSueldo1 {
-  monto = 270
-}
-
-laura -- accionMkt1 : ejecuta
-accionMkt1 -- carlos : dirigida a
-pagoSueldo1 -- trabajadorLocal1 : pagado a
+laura -- accion
+accion -- carlos
+trabajador -- contrato
+contrato -- mision
+trabajador -- pagoSueldo
+pagoSueldo -- mision
 @enduml
