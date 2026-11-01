@@ -41,11 +41,15 @@ class Estudiante_B{
     telefono INT
     QueEstudia VARCHAR
     destino VARCHAR
+    fecha_inicio DATE
+    fecha_fin DATE
 }
 
 class Estudiante_O{
     correo VARCHAR
     telefono INT
+    fecha_inicio DATE
+    fecha_fin DATE
 }
 
 class Apadrinado{
