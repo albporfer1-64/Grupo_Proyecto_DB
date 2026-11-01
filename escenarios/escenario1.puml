@@ -1,22 +1,37 @@
 @startuml
-object "<u>juanPerez : Benefactor</u>" as juanPerez {
-  nombre = "Juan Pérez"
-  tipo = INDIVIDUO
+object "juanPerez : Benefactor" as juanPerez {
+  nombre = "Juan"
+  apellidos = "Pérez"
+  fechaNacimiento = "1980-05-15"
+  NIF = "12345678A"
+  telefono = 600123456
+  horasPosiblesLlamadas = "16:00-20:00"
+  correo = "juanperez@email.com"
+  individuo = true
+  numCuenta = 1234567890
+}
+object "mamadou : Apadrinado" as mamadou {
+  nombre = "Mamadou"
+  apellidos = "Kone"
+  fechaNacimiento = "2015-10-20"
+  fechaFinApadrinado = "2033-10-20"
+  localidad = "Cancún"
+  nombreTutor = "Awa Kone"
+  telefonoTutor = 228901234
+  emailTutor = "awa.kone@email.tg"
+}
+object "contrato : ContratoPadrino" as contrato {
+  aportacion = 30
+  fechaInicio = "2023-01-01"
+  fechaFinal = "2024-01-01"
+}
+object "pago : Pago" as pago {
+  cantidad = 30
+  fecha = "2023-11-01"
 }
 
-object "<u>mamadou : Apadrinado</u>" as mamadou {
-  nombre = "Mamadou Kone"
-}
-
-object "<u>contrato1 : ContratoApadrinamiento</u>" as contrato1 {
-  cuota = 30
-}
-
-object "<u>pago1 : Pago</u>" as pago1 {
-  importe = 30
-}
-
-juanPerez -- contrato1 : firma
-contrato1 -- mamadou : apadrina a
-pago1 -- contrato1 : registrado en
+juanPerez -- contrato
+contrato -- mamadou
+juanPerez -- pago
+pago -- mamadou
 @enduml
