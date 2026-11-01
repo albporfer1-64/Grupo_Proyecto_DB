@@ -16,6 +16,8 @@ object "amina_estudiante : Estudiante_O" as aminaEst {
   fechaNacimiento = "2005-06-14"
   correo = "amina.diop@alumnos.tg"
   telefono = 228445566
+  fecha_fin = NULL
+  fecha_inicio = "2023-09-14"
 }
 
 object "mecanica : Curso" as mecanica {
