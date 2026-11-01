@@ -1,36 +1,22 @@
 @startuml
-object "<u>amina : Apadrinado</u>" as amina {
-  nombre = "Amina Diop"
-  edad = 18
+object "amina : Estudiante_O" as amina {
+  nombre = "Amina"
+  apellidos = "Diop"
+  fechaNacimiento = "2005-06-14"
+  correo = "amina.diop@alumnos.tg"
+  telefono = 228445566
+}
+object "mecanica : Curso" as mecanica {
+  titulo = "Mecánica"
+}
+object "materiales : AsignaturaOficios" as materiales {
+  titulo = "Materiales"
+}
+object "teoria : AsignaturaOficios" as teoria {
+  titulo = "Teoría del Movimiento"
 }
 
-object "<u>misionApadrinado : Mision</u>" as misionApadrinado {
-  estado = "FINALIZADA"
-}
-
-object "<u>misionEscuela : Mision</u>" as misionEscuela {
-  estado = "ACTIVA"
-}
-
-object "<u>mecanica : Especialidad</u>" as mecanica {
-  nombre = "Mecánica"
-}
-
-object "<u>materiales : Asignatura</u>" as materiales {
-  nombre = "Materiales"
-}
-
-object "<u>teoriaMovimiento : Asignatura</u>" as teoriaMovimiento {
-  nombre = "Teoría del Movimiento"
-}
-
-object "<u>inscripcion1 : Inscripcion</u>" as inscripcion1
-
-amina -- misionApadrinado : finalizó
-amina -- misionEscuela : cursa
-misionEscuela -- mecanica : imparte
-mecanica -- materiales : contiene
-mecanica -- teoriaMovimiento : contiene
-amina -- inscripcion1 : realiza
-inscripcion1 -- materiales : inscrita en
+mecanica -- materiales
+mecanica -- teoria
+amina -- materiales
 @enduml
