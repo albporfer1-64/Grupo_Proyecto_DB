@@ -1,0 +1,191 @@
+# Proyecto Atachiarare
+
+## Proyecto grupal de Base de Datos
+
+## Integrantes:
+
+  - Paula Duro Agea
+
+  - Daniel Jurado Cruz
+
+  - Alberto Portilla Ferrari
+
+  - Francisco García Gil
+
+  - Andrea Mottaran
+
+# Índice:
+
+[**1. Descripción del problema 3**](?tab=t.0#heading=h.l7vgmcwipjuk)
+
+[**2. Glosario de términos 4**](?tab=t.0#heading=h.i1enuu3owu79)
+
+[**3. Catálogo de requisitos 5**](?tab=t.0#heading=h.r6y8qp1qxrl9)
+
+[3.1 Usuarios del sistema 5](?tab=t.0#heading=h.i37f9ubb38i6)
+
+[3.2 Requisitos generales 6](?tab=t.0#heading=h.ug85dndl1anq)
+
+[3.3 Requisitos detallados 7](?tab=t.0#heading=h.2bym92d49nl5)
+
+[3.3.1 Requisitos de información 7](?tab=t.0#heading=h.qd8zsjplkq1t)
+
+[3.3.2 Requisitos de conducta 7](?tab=t.0#heading=h.3u4htnx56cmv)
+
+[3.3.3 Requisitos de reglas de negocio 8](?tab=t.0#heading=h.bzeff2an0nx3)
+
+
+
+# 1. Descripción del problema
+
+Atachiarare es una asociación sin ánimo de lucro creada en el año 2007, cuyo objetivo es obtener y gestionar ayuda económica y medios técnicos en beneficio del desarrollo en países del tercer mundo, buscando su abastecimiento y su crecimiento familiar.
+
+Necesitan con urgencia un registro que lleve la contabilidad de los pagos de la asociación, tanto como los pagos recibidos de cada padrino como el dinero que se lleva en torno a un proyecto en concreto, o en cada misión; para facilitar la expansión de la asociación. También necesitan llevar una contabilidad de a qué padrino le corresponde cada apadrinado, y la gestión de datos del alumnado para los trabajadores de Togo.
+
+
+
+# 2. Glosario de términos
+
+**Apadrinado:** niños de hasta 18 años de Togo, que son partícipes de la primera misión que lleva a cabo la asociación.
+
+**Becado:** jóvenes a partir de los 18 años, que son partícipes de la segunda y tercera misión que lleva a cabo la asociación.
+
+**Padrino:** individuo o entidad que aporta económicamente a la que está asociado un número de apadrinados o becados.
+
+**Benefactor:** individuo o entidad que aporta económicamente tanto a las misiones en general como a un proyecto en concreto.
+
+**Empleados de la asociación:** los empleados que se encargan de la gestión de la asociación en su conjunto; principalmente de procedencia española, éstos no cobran.
+
+**Trabajadores de Togo:** los empleados de ahí de Togo en contacto con la realidad de los apadrinados y becados. Dentro de este campo entran los profesores.
+
+**Misiones:** los proyectos principales de la asociación, de la que nacen el resto de proyectos. Las misiones son tres:
+
+1.  Apadrinamiento, que trata en dar una cuota mensual a los niños de Togo(apadrinados) para su aprendizaje escolar.
+
+2.  Escuela de oficios, escuela becada de formación profesional para los jóvenes mayores de edad, en la que estos pueden elegir a lo que se quieren dedicar, y mejorar así su calidad de vida. Estos pueden elegir entre las siguientes opciones: informática, albañilería, electricidad, fontanería, ganadería, agricultura y mecánica.
+
+3.  Becas de estudio, éstas se asignan a los jóvenes mayores de edad que necesitan seguir recibiendo ayudas de los padrinos para continuar su formación profesional.
+
+**Proyectos:** Son las ideas que hacen posible satisfacer las misiones de la asociación. Se centran en las necesidades de los alumnos, tanto apadrinados, como becados de la asociación.
+
+
+
+# 3. Catálogo de requisitos
+
+## 3.1 Usuarios del sistema
+
+**Padrinos/Benefactores:** Usuarios externos que colaboran económicamente con la asociación como por ejemplo mediante el apadrinamiento de los niños. Deberán ser capaces de acceder a la información de sus niños apadrinados, visualizar información sobre el trabajo que está haciendo la asociación, consultar sus aportaciones y pagos realizados y recibir comunicaciones o noticias relacionadas con sus apadrinados y otras actividades de la asociación. Además, podrán ver el avance de sus respectivos apadrinados dentro de la escuela. 
+
+**Empleados de la asociación:** Usuarios encargados de la gestión administrativa y organizativa de la asociación. Tendrán acceso a la información necesaria para gestionar los apadrinamientos, las becas, los estudiantes, padrinos, profesores y trabajadores. Podrán registrar y modificar información, gestionar pagos y gastos, administrar las becas y mantener actualizada la información publicada en la página web. Sus permisos dependerán de la función que desempeñe cada empleado.
+
+**Trabajadores de Togo:** Usuarios que trabajan directamente en los proyectos desarrollados por la asociación en el poblado de Togo, que son los profesores, responsables de otras actividades formativas y, el personal encargado del establecimiento y del seguimiento de los estudiantes. Podrán consultar y actualizar la información de los alumnos según sus funciones, incluyendo datos académicos, horarios, asignaturas, evolución y otra información necesaria para realizar el seguimiento de los niños.
+
+
+
+## 3.2 Requisitos generales
+
+El sistema tendrá como objetivo principal centralizar, organizar y facilitar la gestión de la información de la asociación Atachiarare, principalmente la relacionada con pagos de padrinos/benefactores; permitiendo mejorar tanto la gestión interna como la comunicación entre la asociación, los padrinos y los trabajadores en Togo.
+
+Los principales objetivos son:
+
+  - **RG01-Gestionar los pagos y gastos**, permitiendo llevar un registro de las aportaciones realizadas por los padrinos, así como si están o no cumplidos dichos pagos; y de los gastos asociados a los apadrinamientos y becas.
+
+  - **RG02-Gestionar los apadrinamientos, permitiendo registrar la relación entre padrinos y apadrinados**, consultar su información y poder realizar un seguimiento de los mismos.
+
+  - **RG03-Gestionar las becas**, registrando los estudiantes becados, sus estudios, situación académica, padrinos/benefactores y las ayudas económicas recibidas.
+
+  - **RG04-Facilitar el seguimiento académico de los estudiantes**, almacenando información de sus estudios, asignaturas, profesores, y evolución.
+
+  - **RG05-Facilitar el crecimiento de la asociación**, proporcionando una herramienta que les permita gestionar un mayor número de apadrinamientos, becas, colaboradores de forma organizada y eficiente.
+
+
+
+## 3.3 Requisitos detallados
+
+### 3.3.1 Requisitos de información
+
+  - RI01: El sistema deberá guardar quiénes son los apadrinados o becados, sus condiciones, la misión en la que se encuentran y si están ligados con un padrino, quién es este.
+
+  - RI02: El sistema deberá informar de quiénes son los padrinos o benefactores, su información personal, la cuenta de sus pagos y donaciones, sus proyectos y misiones asociadas, y distinción entre ambos. Si es padrino, este deberá estar ligado también con sus apadrinados.
+
+  - RI03: El sistema deberá registrar el estado de la plantilla de los trabajadores de Togo, quienes están actualmente allí y sus datos personales. Además, se podrá consultar sus datos laborales (como su salario o misión a la que se dedican).
+
+  - RI04: El sistema deberá informar sobre el nombre de la asociación, y a que se dedica ésta.
+
+  - RI05: El sistema deberá informar de las misiones de la asociación, tanto su estado económico como los integrantes de cada misión y los benefactores o padrinos ligados. 
+
+  - RI06: El sistema deberá informar de los proyectos que están llevando a cabo las asociaciones con las distintas misiones, además de facilitar el seguimiento de estos pudiendo ver si están propuestos, en proceso, o acabados; y su progreso económico. 
+
+  - RI07: El sistema deberá informar de quiénes son los empleados de la asociación, y su cargo.
+
+  - RI08: El sistema deberá registrar las numerosas llamadas a los apadrinados o benefactores que se han realizado, cuánto de satisfechos están, o su posible horario de llamada.
+
+  
+
+### 3.3.2 Requisitos de conducta
+
+  - RC01: El sistema deberá permitir hacer un listado de las gestiones económicas del lugar.
+
+  - RC02: El sistema deberá permitir tener conocimiento de los proyectos llevados a cabo junto con el capital necesario para realizar.
+
+  - RC03: El sistema deberá permitir llevar un control exacto del aporte económico de cada padrino y como se distribuye exactamente entre los apadrinados y becados.
+
+  - RC04: El sistema deberá permitir tener un listado de cada uno de los niños, para tener información personal de sus tutores y de sus notas.
+
+  - RC05: El sistema deberá permitir tener un listado de cada uno de los profesores de la escuela de los apadrinados y la de la escuela de oficios, para saber qué asignatura imparten.
+
+  - RC06: El sistema deberá permitir tener un listado de los trabajadores de las escuelas (tanto la escuela de los apadrinados como la de la escuela de los oficios),  como gente de limpieza, administrativa, director, etc.
+
+  - RC-07: Cuando un pago no haya sido cubierto por un padrino, saltar una alerta
+
+
+
+### 3.3.3 Requisitos de reglas de negocio
+
+  - RN 01 - La misión de apadrinamiento acaba a los 18 años, después el jóven puede elegir entre ser becado o no. 
+
+  - RN 02 - No puede haber más de un contrato vigente entre distintos benefactores con un apadrinado.
+
+  - RN 03 - La nota deberá ser entre 0 y 10.
+
+
+
+|      | RG01 | RG02 | RG03 | RG04 | RG05 |
+
+| :--- | :--- | :--- | :--- | :--- | :--- |
+
+| RI01 |      | X    |      | X    |      |
+
+| RI02 | X    | X    |      |      |      |
+
+| RI03 | X    |      |      | X    | X    |
+
+| RI04 |      |      |      |      | X    |
+
+| RI05 | X    |      | X    |      | X    |
+
+| RI06 | X    |      |      |      | X    |
+
+| RI07 |      | X    |      |      | X    |
+
+| RI08 | X    |      |      |      | X    |
+
+| RC01 | X    |      |      |      | X    |
+
+| RC02 | X    |      |      |      | X    |
+
+| RC03 | X    | X    | X    |      | X    |
+
+| RC04 |      | X    | X    | X    |      |
+
+| RC05 |      | X    | X    | X    | X    |
+
+| RC06 | X    |      |      |      | X    |
+
+| RC07 | X    | X    |      |      | X    |
+
+| RN01 | X    | X    | X    |      | X    |
+
+| RN02 | X    | X    | X    |      |      |
+
+| RN03 |      |      |      | X    |      |
