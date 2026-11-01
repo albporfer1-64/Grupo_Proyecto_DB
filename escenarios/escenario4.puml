@@ -1,22 +1,37 @@
 @startuml
-object "amina : Estudiante_O" as amina {
+object "amina_apadrinada : Apadrinado" as aminaApad {
+  nombre = "Amina"
+  apellidos = "Diop"
+  fechaNacimiento = "2005-06-14"
+  fechaFinApadrinado = "2023-06-14"
+  localidad = "Lomé"
+  nombreTutor = "Fatou Diop"
+  telefonoTutor = 228123456
+  emailTutor = "fatou@email.tg"
+}
+
+object "amina_estudiante : Estudiante_O" as aminaEst {
   nombre = "Amina"
   apellidos = "Diop"
   fechaNacimiento = "2005-06-14"
   correo = "amina.diop@alumnos.tg"
   telefono = 228445566
 }
+
 object "mecanica : Curso" as mecanica {
   titulo = "Mecánica"
 }
+
 object "materiales : AsignaturaOficios" as materiales {
   titulo = "Materiales"
 }
+
 object "teoria : AsignaturaOficios" as teoria {
   titulo = "Teoría del Movimiento"
 }
 
+aminaApad -[hidden]down- aminaEst
 mecanica -- materiales
 mecanica -- teoria
-amina -- materiales
+aminaEst -- materiales
 @enduml
