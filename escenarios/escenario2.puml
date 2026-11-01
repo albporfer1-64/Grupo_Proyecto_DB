@@ -3,7 +3,7 @@ object "bakari : Apadrinado" as bakari {
   nombre = "Bakari"
   apellidos = "Sow"
   fechaNacimiento = "2010-03-12"
-  fechaFinApadrinado = "NULL"
+  fechaFinApadrinado = NULL
   localidad = "Lomé"
   nombreTutor = "Koffi Sow"
   telefonoTutor = 228998877
