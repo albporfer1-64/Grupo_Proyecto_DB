@@ -1,21 +1,30 @@
-@startuml escenario2
-object "<u>bakari : Apadrinado</u>" as bakari {
-  nombre = "Bakari Sow"
+@startuml
+object "bakari : Apadrinado" as bakari {
+  nombre = "Bakari"
+  apellidos = "Sow"
+  fechaNacimiento = "2010-03-12"
+  fechaFinApadrinado = "NULL"
+  localidad = "Lomé"
+  nombreTutor = "Koffi Sow"
+  telefonoTutor = 228998877
+  emailTutor = "koffi@email.tg"
 }
-
-object "<u>paulYao : TrabajadorLocal</u>" as paulYao {
-  nombre = "Paul Yao"
+object "paulYao : Trabajador" as paulYao {
+  nombre = "Paul"
+  apellidos = "Yao"
+  fechaNacimiento = "1990-08-25"
+  NIF = "TG123456"
+  correo = "paul.yao@escuela.tg"
+  telefono = 228112233
 }
-
-object "<u>mates3 : Asignatura</u>" as mates3 {
-  nombre = "Mates 3"
+object "mates3 : AsignaturaApadrinado" as mates3 {
+  titulo = "Mates 3"
 }
-
-object "<u>matricula1 : Matricula</u>" as matricula1 {
+object "nota : NotaApadrinado" as nota {
   nota = 8
 }
 
-paulYao -- mates3 : imparte
-bakari -- matricula1 : cursa
-matricula1 -- mates3 : corresponde a
+paulYao -- mates3 
+bakari -- nota
+nota -- mates3
 @enduml
