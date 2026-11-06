@@ -34,6 +34,7 @@ class Benefactor{
     horasPosiblesLlamadas VARCHAR
     correo VARCHAR
     individuo BOOL
+    cuentaBancaria INT
 }
 
 class Estudiante_B{
