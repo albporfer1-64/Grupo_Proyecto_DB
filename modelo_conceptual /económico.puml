@@ -124,7 +124,6 @@ Empleado "*"--"*"Benefactor
 (Empleado, Benefactor) .. AccionesMarketing
 (Trabajador, Mision) .. ContratoTrabajador
 (Benefactor, Proyecto) .. Aportacion_B
-(Benefactor, Apadrinado) .. Pago
 (Benefactor, Apadrinado) .. ContratoPadrino
 
 'Regla de negocio 01:

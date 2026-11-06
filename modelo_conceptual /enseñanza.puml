@@ -73,8 +73,8 @@ Apadrinado "*"--"*" AsignaturaApadrinado
 
 Apadrinamiento "1"--"*" Apadrinado
 
-EscuelaDeOficios --"*" Curso
-Becados --"*" Estudiante_B
+EscuelaDeOficios "1"--"*" Curso
+Becados "1"--"*" Estudiante_B
 
 (AsignaturaOficios, Estudiante_O) .. NotaOficios
 (AsignaturaApadrinado, Apadrinado) .. NotaApadrinado
