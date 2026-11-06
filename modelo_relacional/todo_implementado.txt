@@ -41,7 +41,7 @@ Nivel 4 (TODO):
         AsignaturaOficios(OID, titulo)
             PK(OID) 
 
-    ContieneA:
+    ContieneAEstudiante:
         ContieneA(OID_CA, OID_C, OID_AO) 
             PK(OID_CA), AK(OID_C, OID_AO), FK(OID_C)/Curso, FK(OID_AO)/AsignaturaOficios 
 
@@ -89,11 +89,68 @@ Nivel 6_final:
         ContratoTrabajador(OID, sueldo, fecha_inicio, fecha_fin)
             PK(OID)
 
-    ContieneAContrato:
+    ContieneAContratoT:
         ContieneAContrato(OID, OID_CT, OID_M)
             PK(OID), FK(OID_CT)/ContratoTrabajador, FK(OID_M)/Mision
     
-    TieneContrato:
+    TieneContratoT:
         TieneContrato(OID, OID_CT, OID_T)
             PK(OID), FK(OID_CT)/ContratoTrabajador, FK(OID_T)/Trabajador 
+
+    SueldoPagado:
+        SueldoPagado(OID, cantidad, fecha)
+	        PK(OID)
+    
+    ContieneASueldo:
+        ContieneASueldo(OID, OID_SP, OID_M)
+            PK(OID), FK(OID_SP)/SueldoPagado, FK(OID_M)/Mision
+
+    TieneSueldo:
+        TieneSueldo(OID, OID_SP, OID_T)
+            PK(OID), FK(OID_SP)/SueldoPagado, FK(OID_T)/
+             
+    Proyecto:
+        Proyecto(OID, titulo, contenido, capitalEstimado, fecha_inicio, fecha_fin)
+            PK(OID), AK(titulo)
+
+    ActividadProyecto: 
+        ActividadProyecto(OID, titulo, descripcion, coste, fecha_inicio, fecha_fin)
+            PK(OID), AK(titulo)      
+
+    ContieneAProyecto:
+        ContieneAProyecto(OID, OID_P, OID_AP)
+            PK(OID), FK(OID_P)/Proyecto, FK(OID_AP)/ActividadProyecto
+
+    Aportacion_B:
+        Aportacion_B(OID, cantidad, fecha, OID_P, OID_B)
+            PK(OID), FK(OID_P)/Proyecto, FK(OID_B)/Benefactor 
+
+    Pago:
+        Pago(OID, cantidad, fecha)
+            PK(OID)
+
+    ContieneAPago:
+        ContieneAPago(OID, OID_Be, OID_P)
+            PK(OID), FK(OID_Be)/Benefactor, FK(OID_P)/Pago
+
+    TienePago:
+        TienePago(OID, OID_Pa, OID_A)
+            PK(OID), FK(OID_Pa)/Pago, FK(OID_A)/Apadrinado                 
+
+    ContratoPadrino:
+        ContratoPadrino(OID, aportacion, fecha_inicio, fecha_fin)
+            PK(OID)
+
+    ContieneAContratoP:
+        ContieneAContratoP(OID, OID_Be, OID_CP)
+            PK(OID), FK(OID_Be)/Benefactor, FK(OID_CP)/ContratoPadrino   
+
+    TieneContratoP:
+        TieneContratoP(OID, OID_A, OID_CP)
+            PK(OID), FK(OID_A)/Apadrinado, FK(OID_CP)/ContratoPadrino
+
+    AccionesMarketing:
+        AccionesMarketing(OID, hora, fecha, contenido, metodoComunicacion, valoracion_E, OID_E, OID_Be)
+            PK(OID), FK(OID_Be)/Benefactor, FK(OID_E)/Empleado                                                      
+        
 
