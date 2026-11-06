@@ -42,8 +42,8 @@ Becados -[hidden]right- Apadrinamiento
 Mision "*"--"*" Proyecto
 Mision "*"--"*" SueldoPagado
 SueldoPagado "*"--"*" Trabajador
-Mision "*"--"*" Trabajador
-Mision "*"--"*" Trabajador
+Mision "*"--"*" ContratoTrabajador
+ContratoTrabajador "*"--"*" Trabajador
 Proyecto *--"*" ActividadProyecto
 
 'Subclases de Mision:
@@ -115,14 +115,14 @@ class SueldoPagado{
 Apadrinamiento "1"--"*" Apadrinado
 Benefactor "*"--"*" Pago
 Pago "*"--"*" Apadrinado
-Benefactor "*"--"*" Apadrinado
+Benefactor "*"--"*" ContratoPadrino
+Apadrinado "*"--"*" ContratoPadrino
 Benefactor "*"--"*" Proyecto
 
 Empleado "*"--"*"Benefactor
 
 
 (Empleado, Benefactor) .. AccionesMarketing
-(Trabajador, Mision) .. ContratoTrabajador
 (Benefactor, Proyecto) .. Aportacion_B
 (Benefactor, Apadrinado) .. ContratoPadrino
 

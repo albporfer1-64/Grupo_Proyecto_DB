@@ -1,0 +1,99 @@
+Nivel 0_nuevo:
+    Persona:
+        Persona(OID, nombre, apellidos, fechaNacimiento)
+            PK(OID)
+
+Nivel 1:
+    Mision:
+        Mision(OID, Titulo, Localidad, Descripcion) 
+            PK(OID), AK(Titulo)
+
+Nivel 2:
+    Escuela de Oficios:
+        Escuela_Oficios(OID) 
+            PK(OID), FK(OID)/Mision
+
+    Becados:
+        Becados(OID)
+            PK(OID), FK(OID)/Mision
+
+    Apadrinamiento:
+        Apadrinamiento(OID)
+            PK(OID), FK(OID)/Mision
+
+Nivel 3:
+
+    Curso:
+        Curso(OID, Titulo, escuelaOficio) 
+            PK(OID), FK(escuelaOficio)/Escuela_Oficios
+
+    Estudiante_B:
+        Estudiante_B(OID, Correo, Telefono, QueEstudia, Destino, fecha_inicio, fecha_fin, becado)
+            PK(OID), AK(Correo), AK(Telefono), FK(becado)/Becados FK(OID)/Persona
+
+    Apadrinado:
+        Apadrinado(OID, fechaFinApadrinado, localidad, nombreTutor, telefonoTutor, emailTutor, apadrinamiento)
+            PK(OID), FK(apadrinamiento)/Apadrinamiento, FK(OID)/Persona
+
+
+Nivel 4 (TODO):
+    AsignaturaOficios:
+        AsignaturaOficios(OID, titulo)
+            PK(OID) 
+
+    ContieneA:
+        ContieneA(OID_CA, OID_C, OID_AO) 
+            PK(OID_CA), AK(OID_C, OID_AO), FK(OID_C)/Curso, FK(OID_AO)/AsignaturaOficios 
+
+    Estudiante_O:
+        Estudiante_O(OID, correo, telefono, fecha_inicio, fecha_fin)
+            PK(OID), AK(correo), AK(telefono), FK(OID)/Persona
+
+
+    NotaOficios:
+        NotaOficios(OID, nota, OID_AO, OID_EO)
+            PK(OID), FK(OID_AO)/AsignaturaOficios, FK(OID_EO)/Estudiante_O        
+
+    Trabajador:
+        Trabajador(OID, NIF, correo, telefono)
+            PK(OID), AK(NIF), AK(correo), AK(telefono), FK(OID)/Persona
+
+
+    TrabajaEnOficios:
+        TrabajaEnOficios(OID, OID_AO, OID_T)
+            PK(OID), FK(OID_AO)/AsignaturaOficios, FK(OID_T)/Trabajador        
+
+    AsignaturaApadrinado:
+        AsignaturaApadrinado(OID, titulo)
+            PK(OID)
+
+    TrabajaEnApadrinado:
+        TrabajaEnApadrinado(OID, OID_AP, OID_T)
+            PK(OID), FK(OID_AP)/AsignaturaApadrinado, FK(OID_T)/Trabajador
+
+    NotaApadrinado:
+        NotaApadrinado(OID, nota, OID_A, OID_AP)
+            PK(OID), FK(OID_A)/Apadrinado, FK(OID_AP)/AsignaturaApadrinado           
+
+Nivel 5_nuevo:
+    Benefactor:
+        Benefactor(OID, NIF, telefono, horasPosiblesLlamadas, correo, individuo, cuenta_bancaria)
+            PK(OID), AK(NIF), AK(telefono), AK(correo), AK(cuenta_bancaria), FK(OID)/Persona
+
+    Empleado:
+        Empleado(OID, NIF, correo, telefono, rol)
+            PK(OID), AK(NIF), AK(correo), AK(telefono), FK(OID)/Persona                        
+
+Nivel 6_final:
+    ContratoTrabajador:
+        ContratoTrabajador(OID, sueldo, fecha_inicio, fecha_fin)
+            PK(OID)
+
+    ContieneAContrato:
+        ContieneAContrato(OID, OID_CT, OID_M)
+            PK(OID), FK(OID_CT)/ContratoTrabajador, FK(OID_M)/Mision
+    
+    TieneContrato:
+        TieneContrato(OID, OID_CT, OID_T)
+            PK(OID), FK(OID_CT)/ContratoTrabajador, FK(OID_T)/Trabajador 
+
