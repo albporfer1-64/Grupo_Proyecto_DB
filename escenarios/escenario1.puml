@@ -14,7 +14,7 @@ object "mamadou : Apadrinado" as mamadou {
   nombre = "Mamadou"
   apellidos = "Kone"
   fechaNacimiento = "2015-10-20"
-  fechaFinApadrinado = "2033-10-20"
+  fechaFinApadrinado = NULL
   localidad = "Cancún"
   nombreTutor = "Awa Kone"
   telefonoTutor = 228901234

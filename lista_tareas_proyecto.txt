@@ -1,0 +1,67 @@
+# LISTA DE TAREAS: ENTREGA FINAL DEL PROYECTO DE BASES DE DATOS
+
+
+
+## Fase 1: Mejora de Entregables Previos
+
+- [X] Revisar el feedback del profesor sobre el primer y segundo entregable.
+
+- [X] Corregir errores en el Modelo Conceptual (diagramas UML).
+
+- [ ] Actualizar la documentación previa para que coincida con los cambios finales.
+
+
+
+## Fase 2: Modelo Relacional y Normalización (Documento PDF)
+
+- [ ] Redactar la justificación de la transformación del Modelo Conceptual al Relacional.
+
+- [ ] Escribir la justificación detallada de la estrategia de transformación de las jerarquías (cómo se han mapeado las clases Mision y Persona, etc.).
+
+- [ ] Redactar la justificación de la Primera Forma Normal (1FN): explicar cómo se han eliminado los atributos multivaluados y grupos repetidos.
+
+- [ ] Redactar la justificación de la Segunda Forma Normal (2FN): explicar cómo se ha asegurado que los atributos no primos dependan completamente de las claves candidatas (sin dependencias incompletas).
+
+- [ ] Redactar la justificación de la Tercera Forma Normal (3FN): explicar cómo se han eliminado las dependencias transitivas.
+
+- [ ] Revisar el modelo relacional final asegurando que los errores previos (clave foránea de TieneSueldo, nombre de bloque ContieneA) estén corregidos.
+
+
+
+## Fase 3: Modelo Tecnológico (Scripts SQL en MariaDB)
+
+- [ ] 6.1 Crear script de Tablas (`01_tablas.sql`): Incluir sentencias CREATE TABLE, tipos de datos, PRIMARY KEYS (PK) y FOREIGN KEYS (FK).
+
+- [ ] 6.1 Añadir restricciones al script de tablas (NOT NULL, UNIQUE, CHECK).
+
+- [ ] 6.2 Crear script de Inserciones (`02_datos.sql`): Redactar sentencias INSERT con suficientes datos de prueba y coherentes con las claves foráneas.
+
+- [ ] 6.3 Crear script de Consultas (`03_consultas.sql`): Diseñar consultas SQL (usando SELECT, JOIN, WHERE, GROUP BY) que aporten valor al negocio.
+
+- [ ] 6.4 Crear script de Funciones y Procedimientos (`04_rutinas.sql`): Programar la lógica de negocio necesaria.
+
+- [ ] 6.5 Crear script de Triggers (`05_triggers.sql`): Programar disparadores asociados a reglas de negocio para mantener la integridad de los datos.
+
+- [ ] 6.6 (Opcional) Crear script de poblado mediante procedimientos (`06_poblado_procedimientos.sql`).
+
+- [ ] 6.7 (Opcional) Crear script de pruebas (`07_pruebas.sql`): Llamadas a procedimientos/funciones y comprobación de triggers.
+
+
+
+## Fase 4: Preparación de la Entrega y Empaquetado
+
+- [ ] Comprobar que todos los scripts SQL se ejecutan secuencialmente sin errores en MariaDB.
+
+- [ ] Crear archivo `readme.md` con las instrucciones detalladas de ejecución (orden de los scripts, versión de MariaDB, etc.).
+
+- [ ] Generar el documento PDF final uniendo las partes de los entregables 1 y 2 mejorados y el apartado 5 (Modelo relacional y Normalización).
+
+- [ ] Crear un archivo ZIP único.
+
+- [ ] Incluir dentro del ZIP el PDF final.
+
+- [ ] Incluir dentro del ZIP todos los archivos `.sql` enumerados correctamente.
+
+- [ ] Incluir dentro del ZIP el archivo `readme.md`.
+
+- [ ] Subir el archivo ZIP a la plataforma de entrega antes de la fecha límite.
