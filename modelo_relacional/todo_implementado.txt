@@ -113,12 +113,16 @@ Nivel 6_final:
         Proyecto(OID, titulo, contenido, capitalEstimado, fecha_inicio, fecha_fin)
             PK(OID), AK(titulo)
 
+    ContieneAProyecto:
+        ContieneAProyecto(OID, OID_P, OID_M) 
+            PK(OID), FK(OID_P)/Proyecto, FK(OID_M)/Mision                
+
     ActividadProyecto: 
         ActividadProyecto(OID, titulo, descripcion, coste, fecha_inicio, fecha_fin)
             PK(OID), AK(titulo)      
 
-    ContieneAProyecto:
-        ContieneAProyecto(OID, OID_P, OID_AP)
+    ContieneAActividadesProyecto:
+        ContieneAActividadesProyecto(OID, OID_P, OID_AP)
             PK(OID), FK(OID_P)/Proyecto, FK(OID_AP)/ActividadProyecto
 
     Aportacion_B:

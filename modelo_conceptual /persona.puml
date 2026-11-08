@@ -1,11 +1,11 @@
 @startuml hola
-hide methods
 skinparam classAttributeIconSize 0
 
 class Persona{
     nombre VARCHAR
     apellidos VARCHAR
-    fechaNacimiento DATE (puede ser NULL)
+    fechaNacimiento DATE 
+    '(puede ser NULL)
 }
 
 'Subclases de Persona:
