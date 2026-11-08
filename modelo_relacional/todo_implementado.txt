@@ -41,8 +41,8 @@ Nivel 4 (TODO):
         AsignaturaOficios(OID, titulo)
             PK(OID) 
 
-    ContieneAEstudiante:
-        ContieneA(OID_CA, OID_C, OID_AO) 
+    ContieneAAsignatura:
+        ContieneAAsignatura(OID_CA, OID_C, OID_AO) 
             PK(OID_CA), AK(OID_C, OID_AO), FK(OID_C)/Curso, FK(OID_AO)/AsignaturaOficios 
 
     Estudiante_O:
@@ -107,7 +107,7 @@ Nivel 6_final:
 
     TieneSueldo:
         TieneSueldo(OID, OID_SP, OID_T)
-            PK(OID), FK(OID_SP)/SueldoPagado, FK(OID_T)/
+            PK(OID), FK(OID_SP)/SueldoPagado, FK(OID_T)/Trabajador
              
     Proyecto:
         Proyecto(OID, titulo, contenido, capitalEstimado, fecha_inicio, fecha_fin)
