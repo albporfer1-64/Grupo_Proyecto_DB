@@ -8,7 +8,7 @@
 
 - [X] Corregir errores en el Modelo Conceptual (diagramas UML).
 
-- [ ] Actualizar la documentación previa para que coincida con los cambios finales.
+- [X] Actualizar la documentación previa para que coincida con los cambios finales. IMP: Volver a repasar al final de todo.
 
 
 
@@ -24,7 +24,7 @@
 
 - [ ] Redactar la justificación de la Tercera Forma Normal (3FN): explicar cómo se han eliminado las dependencias transitivas.
 
-- [ ] Revisar el modelo relacional final asegurando que los errores previos (clave foránea de TieneSueldo, nombre de bloque ContieneA) estén corregidos.
+- [X] Revisar el modelo relacional final asegurando que los errores previos (clave foránea de TieneSueldo, nombre de bloque ContieneA) estén corregidos.
 
 
 
