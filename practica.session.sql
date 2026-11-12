@@ -42,15 +42,15 @@ DROP TABLE IF EXISTS Persona;
 
 CREATE TABLE Persona (
     OID INT PRIMARY KEY,
-    nombre VARCHAR(100),
-    apellidos VARCHAR(150),
-    fechaNacimiento DATE
+    nombre VARCHAR(100) NOT NULL,
+    apellidos VARCHAR(150) NOT NULL,
+    fechaNacimiento DATE NOT NULL
 );
 
 CREATE TABLE Mision (
     OID INT PRIMARY KEY,
-    Titulo VARCHAR(150) UNIQUE,
-    Localidad VARCHAR(100),
+    Titulo VARCHAR(150) UNIQUE NOT NULL,
+    Localidad VARCHAR(100) NOT NULL,
     Descripcion TEXT
 );
 
@@ -71,7 +71,7 @@ CREATE TABLE Apadrinamiento (
 
 CREATE TABLE Curso (
     OID INT PRIMARY KEY,
-    Titulo VARCHAR(150),
+    Titulo VARCHAR(150) UNIQUE NOT NULL,
     escuelaOficio INT,
     FOREIGN KEY (escuelaOficio) REFERENCES Escuela_Oficios(OID)
 );
@@ -136,8 +136,8 @@ CREATE TABLE NotaOficios (
 CREATE TABLE Trabajador (
     OID INT PRIMARY KEY,
     NIF VARCHAR(20) UNIQUE,
-    correo VARCHAR(150) UNIQUE,
-    telefono VARCHAR(20) UNIQUE,
+    correo VARCHAR(150) UNIQUE NOT NULL,
+    telefono VARCHAR(20) UNIQUE NOT NULL,
     FOREIGN KEY (OID) REFERENCES Persona(OID)
 );
 
@@ -184,7 +184,7 @@ CREATE TABLE Benefactor (
 
 CREATE TABLE Empleado (
     OID INT PRIMARY KEY,
-    NIF VARCHAR(20) UNIQUE,
+    NIF VARCHAR(20) UNIQUE NOT NULL,
     correo VARCHAR(150) UNIQUE,
     telefono VARCHAR(20) UNIQUE,
     rol VARCHAR(100),
@@ -305,8 +305,8 @@ CREATE TABLE TienePago (
 CREATE TABLE ContratoPadrino (
     OID INT PRIMARY KEY,
     aportacion DECIMAL(10, 2),
-    fecha_inicio DATE,
-    fecha_fin DATE
+    fecha_inicio DATE NOT NULL,
+    fecha_fin DATE NOT NULL
 );
 
 CREATE TABLE ContieneAContratoP (
@@ -327,11 +327,11 @@ CREATE TABLE TieneContratoP (
 
 CREATE TABLE AccionesMarketing (
     OID INT PRIMARY KEY,
-    hora TIME,
-    fecha DATE,
+    hora TIME NOT NULL,
+    fecha DATE NOT NULL,
     contenido TEXT,
-    metodoComunicacion VARCHAR(100),
-    valoracion_E INT,
+    metodoComunicacion VARCHAR(100) NOT NULL,
+    valoracion_E INT NOT NULL,
     OID_E INT,
     OID_Be INT,
     FOREIGN KEY (OID_E) REFERENCES Empleado(OID),
