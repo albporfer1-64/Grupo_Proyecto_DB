@@ -65,4 +65,10 @@ class Apadrinado{
     emailTutor STRING
 }
 
+'Regla de negocio 04:
+note "RN04\n Cualquier individuo \n que esté siendo ayudado económicamente \n en ese momento, no puede pertenecer \n a ninguna otra clase persona." as RN04
+RN04 .. Estudiante_B
+RN04 .. Apadrinado
+RN04 .. Estudiante_O
+
 @enduml
