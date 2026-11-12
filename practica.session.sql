@@ -78,11 +78,11 @@ CREATE TABLE Curso (
 
 CREATE TABLE Estudiante_B (
     OID INT PRIMARY KEY,
-    Correo VARCHAR(150) UNIQUE,
-    Telefono VARCHAR(20) UNIQUE,
-    QueEstudia VARCHAR(150),
-    Destino VARCHAR(150),
-    fecha_inicio DATE,
+    Correo VARCHAR(150) UNIQUE NOT NULL, 
+    Telefono VARCHAR(20) UNIQUE NOT NULL,
+    QueEstudia VARCHAR(150) NOT NULL,
+    Destino VARCHAR(150) NOT NULL,
+    fecha_inicio DATE NOT NULL,
     fecha_fin DATE,
     becado INT,
     FOREIGN KEY (OID) REFERENCES Persona(OID),
@@ -92,10 +92,10 @@ CREATE TABLE Estudiante_B (
 CREATE TABLE Apadrinado (
     OID INT PRIMARY KEY,
     fechaFinApadrinado DATE,
-    localidad VARCHAR(100),
-    nombreTutor VARCHAR(150),
-    telefonoTutor VARCHAR(20),
-    emailTutor VARCHAR(150),
+    localidad VARCHAR(100) NOT NULL,
+    nombreTutor VARCHAR(150) NOT NULL,
+    telefonoTutor VARCHAR(20) NOT NULL,
+    emailTutor VARCHAR(150) NOT NULL,
     apadrinamiento INT,
     FOREIGN KEY (OID) REFERENCES Persona(OID),
     FOREIGN KEY (apadrinamiento) REFERENCES Apadrinamiento(OID)
@@ -117,8 +117,8 @@ CREATE TABLE ContieneAAsignatura (
 
 CREATE TABLE Estudiante_O (
     OID INT PRIMARY KEY,
-    correo VARCHAR(150) UNIQUE,
-    telefono VARCHAR(20) UNIQUE,
+    correo VARCHAR(150) UNIQUE NOT NULL,
+    telefono VARCHAR(20) UNIQUE NOT NULL,
     fecha_inicio DATE,
     fecha_fin DATE,
     FOREIGN KEY (OID) REFERENCES Persona(OID)
