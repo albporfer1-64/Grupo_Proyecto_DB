@@ -17,7 +17,7 @@ Persona <|-- Empleado
 Persona <|-- Trabajador
 
 'Restricción de cobertura:
-note on link : {completa, disjunta}
+note on link : {completa, solapada}
 
 class Trabajador{
     NIF VARCHAR
