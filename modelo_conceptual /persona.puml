@@ -17,7 +17,7 @@ Persona <|-- Empleado
 Persona <|-- Trabajador
 
 'Restricción de cobertura:
-note on link : {completa, disjunta}
+note on link : {completa, solapada}
 
 class Trabajador{
     NIF VARCHAR
@@ -64,5 +64,11 @@ class Apadrinado{
     telefonoTutor INT
     emailTutor STRING
 }
+
+'Regla de negocio 04:
+note "RN04\n Cualquier individuo \n que esté siendo ayudado económicamente \n en ese momento, no puede pertenecer \n a ninguna otra clase persona." as RN04
+RN04 .. Estudiante_B
+RN04 .. Apadrinado
+RN04 .. Estudiante_O
 
 @enduml

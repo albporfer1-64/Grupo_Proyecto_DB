@@ -14,15 +14,15 @@
 
 ## Fase 2: Modelo Relacional y Normalización (Documento PDF)
 
-- [ ] Redactar la justificación de la transformación del Modelo Conceptual al Relacional.
+- [X] Redactar la justificación de la transformación del Modelo Conceptual al Relacional.
 
-- [ ] Escribir la justificación detallada de la estrategia de transformación de las jerarquías (cómo se han mapeado las clases Mision y Persona, etc.).
+- [X] Escribir la justificación detallada de la estrategia de transformación de las jerarquías (cómo se han mapeado las clases Mision y Persona, etc.).
 
-- [ ] Redactar la justificación de la Primera Forma Normal (1FN): explicar cómo se han eliminado los atributos multivaluados y grupos repetidos.
+- [X] Redactar la justificación de la Primera Forma Normal (1FN): explicar cómo se han eliminado los atributos multivaluados y grupos repetidos.
 
-- [ ] Redactar la justificación de la Segunda Forma Normal (2FN): explicar cómo se ha asegurado que los atributos no primos dependan completamente de las claves candidatas (sin dependencias incompletas).
+- [X] Redactar la justificación de la Segunda Forma Normal (2FN): explicar cómo se ha asegurado que los atributos no primos dependan completamente de las claves candidatas (sin dependencias incompletas).
 
-- [ ] Redactar la justificación de la Tercera Forma Normal (3FN): explicar cómo se han eliminado las dependencias transitivas.
+- [X] Redactar la justificación de la Tercera Forma Normal (3FN): explicar cómo se han eliminado las dependencias transitivas.
 
 - [X] Revisar el modelo relacional final asegurando que los errores previos (clave foránea de TieneSueldo, nombre de bloque ContieneA) estén corregidos.
 

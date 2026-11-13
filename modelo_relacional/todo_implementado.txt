@@ -4,24 +4,19 @@ Nivel 0_nuevo:
             PK(OID)
 
 Nivel 1:
-    Mision:
-        Mision(OID, Titulo, Localidad, Descripcion) 
+    Escuela de Oficios:
+        Escuela_Oficios(OID, Titulo, Localidad, Descripcion) 
+            PK(OID), AK(Titulo)
+
+    Becados:
+        Becados(OID, Titulo, Localidad, Descripcion)
+            PK(OID), AK(Titulo)
+
+    Apadrinamiento:
+        Apadrinamiento(OID, Titulo, Localidad, Descripcion)
             PK(OID), AK(Titulo)
 
 Nivel 2:
-    Escuela de Oficios:
-        Escuela_Oficios(OID) 
-            PK(OID), FK(OID)/Mision
-
-    Becados:
-        Becados(OID)
-            PK(OID), FK(OID)/Mision
-
-    Apadrinamiento:
-        Apadrinamiento(OID)
-            PK(OID), FK(OID)/Mision
-
-Nivel 3:
 
     Curso:
         Curso(OID, Titulo, escuelaOficio) 
@@ -36,7 +31,7 @@ Nivel 3:
             PK(OID), FK(apadrinamiento)/Apadrinamiento, FK(OID)/Persona
 
 
-Nivel 4 (TODO):
+Nivel 3 (TODO):
     AsignaturaOficios:
         AsignaturaOficios(OID, titulo)
             PK(OID) 
@@ -75,7 +70,7 @@ Nivel 4 (TODO):
         NotaApadrinado(OID, nota, OID_A, OID_AP)
             PK(OID), FK(OID_A)/Apadrinado, FK(OID_AP)/AsignaturaApadrinado           
 
-Nivel 5_nuevo:
+Nivel 4_nuevo:
     Benefactor:
         Benefactor(OID, NIF, telefono, horasPosiblesLlamadas, correo, individuo, cuenta_bancaria)
             PK(OID), AK(NIF), AK(telefono), AK(correo), AK(cuenta_bancaria), FK(OID)/Persona
@@ -84,7 +79,7 @@ Nivel 5_nuevo:
         Empleado(OID, NIF, correo, telefono, rol)
             PK(OID), AK(NIF), AK(correo), AK(telefono), FK(OID)/Persona                        
 
-Nivel 6_final:
+Nivel 5_final:
     ContratoTrabajador:
         ContratoTrabajador(OID, sueldo, fecha_inicio, fecha_fin)
             PK(OID)
