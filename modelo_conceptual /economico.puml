@@ -114,7 +114,7 @@ class SueldoPagado{
 
 Apadrinamiento "1"--"*" Apadrinado
 Benefactor "1"--"*" Pago
-Pago "*"--"*" Apadrinado
+Pago "*"--"1" Apadrinado
 Benefactor "*"--"*" ContratoPadrino
 Apadrinado "*"--"*" ContratoPadrino
 Benefactor "*"--"*" Proyecto
