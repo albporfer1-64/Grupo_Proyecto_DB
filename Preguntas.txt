@@ -1,0 +1,18 @@
+>===========<
+| Preguntas |
+>===========<
+
+	* ¿Para que queremos la clave ajena en ContieneAAsignatura AK(OID_C, OID_AO)?
+
+	* Tabajador y empleado, ¿Puede no tener NIF, numero, correo, ...? Si es asi, no puede ser clave alternativa.
+
+	* ¿NOT NULL en las FK de NotaOficios, TrabajaEnOficios, TrabajaEnApadrinado, NotaApadrinado, ContieneAContratoT,
+	   TieneContratoT, ContieneASueldo, TieneSueldo, ContieneAProyecto, ContieneAActividadesProyecto, 
+	   Aportacion_B, ContieneAPago, TienePago, ContieneAContratoP, TieneContratoP, AccionesMarketing?
+ 
+-----------
+\ Cambios /
+/  hechos \
+-----------
+- Quitar AK benefactor nif, correo, numero
+- Quitar AK de Curso Titulo
