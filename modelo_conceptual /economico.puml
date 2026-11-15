@@ -40,7 +40,7 @@ EscuelaDeOficios -[hidden]right- Becados
 Becados -[hidden]right- Apadrinamiento
 
 Mision "*"--"*" Proyecto
-Mision "*"--"*" SueldoPagado
+Mision "1"--"*" SueldoPagado
 SueldoPagado "*"--"*" Trabajador
 Mision "*"--"*" ContratoTrabajador
 ContratoTrabajador "*"--"*" Trabajador
@@ -115,8 +115,8 @@ class SueldoPagado{
 Apadrinamiento "1"--"*" Apadrinado
 Benefactor "1"--"*" Pago
 Pago "*"--"*" Apadrinado
-Benefactor "*"--"*" ContratoPadrino
-Apadrinado "*"--"*" ContratoPadrino
+Benefactor "1"--"*" ContratoPadrino
+Apadrinado "1"--"*" ContratoPadrino
 Benefactor "*"--"*" Proyecto
 
 Empleado "*"--"*"Benefactor

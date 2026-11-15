@@ -125,12 +125,8 @@ Nivel 5_final:
             PK(OID), FK(OID_P)/Proyecto, FK(OID_B)/Benefactor 
 
     Pago:
-        Pago(OID, cantidad, fecha)
-            PK(OID)
-
-    ContieneAPago:
-        ContieneAPago(OID, OID_Be, OID_P)
-            PK(OID), FK(OID_Be)/Benefactor, FK(OID_P)/Pago
+        Pago(OID, cantidad, fecha, OID_Be)
+            PK(OID), FK(OID_Be)/Benefactor
 
     TienePago:
         TienePago(OID, OID_Pa, OID_A)
