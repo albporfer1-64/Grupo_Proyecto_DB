@@ -73,7 +73,7 @@ Nivel 3 (TODO):
 Nivel 4_nuevo:
     Benefactor:
         Benefactor(OID, NIF, telefono, horasPosiblesLlamadas, correo, individuo, cuenta_bancaria)
-            PK(OID), AK(cuenta_bancaria), FK(OID)/Persona
+            PK(OID),AK(NIF) ,  AK(cuenta_bancaria), AK(telefono), AK(correo), FK(OID)/Persona
 
     Empleado:
         Empleado(OID, NIF, correo, telefono, rol)
