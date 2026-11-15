@@ -41,9 +41,9 @@ Becados -[hidden]right- Apadrinamiento
 
 Mision "*"--"*" Proyecto
 Mision "1"--"*" SueldoPagado
-SueldoPagado "*"--"*" Trabajador
-Mision "*"--"*" ContratoTrabajador
-ContratoTrabajador "*"--"*" Trabajador
+SueldoPagado "*"--"1" Trabajador
+Mision "1"--"*" ContratoTrabajador
+ContratoTrabajador "*"--"1" Trabajador
 Proyecto *--"*" ActividadProyecto
 
 'Subclases de Mision:
