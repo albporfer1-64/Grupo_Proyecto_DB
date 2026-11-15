@@ -71,7 +71,7 @@ CREATE TABLE Apadrinamiento (
 
 CREATE TABLE Curso (
     OID INT PRIMARY KEY,
-    Titulo VARCHAR(150) UNIQUE NOT NULL,
+    Titulo VARCHAR(150) NOT NULL,
     escuelaOficio INT,
     FOREIGN KEY (escuelaOficio) REFERENCES Escuela_Oficios(OID)
 );
@@ -108,8 +108,8 @@ CREATE TABLE AsignaturaOficios (
 
 CREATE TABLE ContieneAAsignatura (
     OID_CA INT PRIMARY KEY,
-    OID_C INT,
-    OID_AO INT,
+    OID_C INT NOT NULL,
+    OID_AO INT NOT NULL,
     UNIQUE (OID_C, OID_AO),
     FOREIGN KEY (OID_C) REFERENCES Curso(OID),
     FOREIGN KEY (OID_AO) REFERENCES AsignaturaOficios(OID)
@@ -135,7 +135,7 @@ CREATE TABLE NotaOficios (
 
 CREATE TABLE Trabajador (
     OID INT PRIMARY KEY,
-    NIF VARCHAR(20) UNIQUE,
+    NIF VARCHAR(20) UNIQUE NOT NULL,
     correo VARCHAR(150) UNIQUE NOT NULL,
     telefono VARCHAR(20) UNIQUE NOT NULL,
     FOREIGN KEY (OID) REFERENCES Persona(OID)
@@ -174,11 +174,11 @@ CREATE TABLE NotaApadrinado (
 CREATE TABLE Benefactor (
     OID INT PRIMARY KEY,
     NIF VARCHAR(20) UNIQUE,
-    telefono VARCHAR(20) UNIQUE,
+    telefono VARCHAR(20) UNIQUE NOT NULL,
     horasPosiblesLlamadas VARCHAR(100),
-    correo VARCHAR(150) UNIQUE,
+    correo VARCHAR(150) UNIQUE NOT NULL,
     individuo BOOLEAN,
-    cuenta_bancaria VARCHAR(34) UNIQUE,
+    cuenta_bancaria VARCHAR(34) UNIQUE NOT NULL,
     FOREIGN KEY (OID) REFERENCES Persona(OID)
 );
 
@@ -238,7 +238,7 @@ CREATE TABLE TieneSueldo (
 
 CREATE TABLE Proyecto (
     OID INT PRIMARY KEY,
-    titulo VARCHAR(150) UNIQUE,
+    titulo VARCHAR(150) UNIQUE NOT NULL,
     contenido TEXT,
     capitalEstimado DECIMAL(12, 2),
     fecha_inicio DATE,
@@ -255,7 +255,7 @@ CREATE TABLE ContieneAProyecto (
 
 CREATE TABLE ActividadProyecto (
     OID INT PRIMARY KEY,
-    titulo VARCHAR(150) UNIQUE,
+    titulo VARCHAR(150) UNIQUE NOT NULL,
     descripcion TEXT,
     coste DECIMAL(10, 2),
     fecha_inicio DATE,
