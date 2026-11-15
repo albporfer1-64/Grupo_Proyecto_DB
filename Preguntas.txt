@@ -14,5 +14,5 @@
 \ Cambios /
 /  hechos \
 -----------
-- Quitar AK benefactor nif, correo, numero
-- Quitar AK de Curso Titulo
+- Quitar AK benefactor nif, correo, numero (pueden ser NULL, por tanto, no pueden ser AK)
+- Quitar AK de Curso Titulo (impide que dos escuelas tengan cursos con el mismo nombre)
