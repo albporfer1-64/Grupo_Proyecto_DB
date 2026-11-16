@@ -73,7 +73,7 @@ Nivel 3 (TODO):
 Nivel 4_nuevo:
     Benefactor:
         Benefactor(OID, NIF, telefono, horasPosiblesLlamadas, correo, individuo, cuenta_bancaria)
-            PK(OID),AK(NIF) ,  AK(cuenta_bancaria), AK(telefono), AK(correo), FK(OID)/Persona
+            PK(OID), AK(NIF), AK(cuenta_bancaria), AK(telefono), AK(correo), FK(OID)/Persona
 
     Empleado:
         Empleado(OID, NIF, correo, telefono, rol)
@@ -81,29 +81,13 @@ Nivel 4_nuevo:
 
 Nivel 5_final:
     ContratoTrabajador:
-        ContratoTrabajador(OID, sueldo, fecha_inicio, fecha_fin)
-            PK(OID)
-
-    ContieneAContratoT:
-        ContieneAContrato(OID, OID_CT, OID_M)
-            PK(OID), FK(OID_CT)/ContratoTrabajador, FK(OID_M)/Mision
+        ContratoTrabajador(OID, sueldo, fecha_inicio, fecha_fin, OID_T, OID_M)
+            PK(OID), FK(OID_T)/Trabajador, FK(OID_M)/Mision
     
-    TieneContratoT:
-        TieneContrato(OID, OID_CT, OID_T)
-            PK(OID), FK(OID_CT)/ContratoTrabajador, FK(OID_T)/Trabajador 
-
     SueldoPagado:
-        SueldoPagado(OID, cantidad, fecha)
-	        PK(OID)
+        SueldoPagado(OID, cantidad, fecha, OID_T, OID_M)
+	        PK(OID), FK(OID_T)/Trabajador, FK(OID_M)/Mision
     
-    ContieneASueldo:
-        ContieneASueldo(OID, OID_SP, OID_M)
-            PK(OID), FK(OID_SP)/SueldoPagado, FK(OID_M)/Mision
-
-    TieneSueldo:
-        TieneSueldo(OID, OID_SP, OID_T)
-            PK(OID), FK(OID_SP)/SueldoPagado, FK(OID_T)/Trabajador
-             
     Proyecto:
         Proyecto(OID, titulo, contenido, capitalEstimado, fecha_inicio, fecha_fin)
             PK(OID), AK(titulo)
@@ -133,17 +117,9 @@ Nivel 5_final:
             PK(OID), FK(OID_Pa)/Pago, FK(OID_A)/Apadrinado                 
 
     ContratoPadrino:
-        ContratoPadrino(OID, aportacion, fecha_inicio, fecha_fin)
-            PK(OID)
-
-    ContieneAContratoP:
-        ContieneAContratoP(OID, OID_Be, OID_CP)
-            PK(OID), FK(OID_Be)/Benefactor, FK(OID_CP)/ContratoPadrino   
-
-    TieneContratoP:
-        TieneContratoP(OID, OID_A, OID_CP)
-            PK(OID), FK(OID_A)/Apadrinado, FK(OID_CP)/ContratoPadrino
-
+        ContratoPadrino(OID, aportacion, fecha_inicio, fecha_fin, OID_Be, OID_A)
+            PK(OID), OID_Be/Benefecator, OID_A/Apadrinado 
+    
     AccionesMarketing:
         AccionesMarketing(OID, hora, fecha, contenido, metodoComunicacion, valoracion_E, OID_E, OID_Be)
             PK(OID), FK(OID_Be)/Benefactor, FK(OID_E)/Empleado                                                      
