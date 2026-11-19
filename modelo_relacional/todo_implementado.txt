@@ -27,8 +27,8 @@ Nivel 2:
             PK(OID), AK(Correo), AK(Telefono), FK(becado)/Becados FK(OID)/Persona
 
     Apadrinado:
-        Apadrinado(OID, fechaFinApadrinado, localidad, nombreTutor, telefonoTutor, emailTutor, apadrinamiento)
-            PK(OID), FK(apadrinamiento)/Apadrinamiento, FK(OID)/Persona
+        Apadrinado(OID, fechaFinApadrinado, localidad, nombreTutor, telefonoTutor, emailTutor, OID_AM)
+            PK(OID), FK(OID_AM)/Apadrinamiento, FK(OID)/Persona
 
 
 Nivel 3 (TODO):
@@ -41,8 +41,8 @@ Nivel 3 (TODO):
             PK(OID_CA), AK(OID_C, OID_AO), FK(OID_C)/Curso, FK(OID_AO)/AsignaturaOficios 
 
     Estudiante_O:
-        Estudiante_O(OID, correo, telefono, fecha_inicio, fecha_fin)
-            PK(OID), AK(correo), AK(telefono), FK(OID)/Persona
+        Estudiante_O(OID, correo, telefono, fecha_inicio, fecha_fin, OID_EO)
+            PK(OID), AK(correo), AK(telefono), FK(OID)/Persona, FK(OID_EO)/Escuela_Oficios
 
 
     NotaOficios:
