@@ -81,20 +81,20 @@ Nivel 4_nuevo:
 
 Nivel 5_final:
     ContratoTrabajador:
-        ContratoTrabajador(OID, sueldo, fecha_inicio, fecha_fin, OID_T, OID_M)
-            PK(OID), FK(OID_T)/Trabajador, FK(OID_M)/Mision
+        ContratoTrabajador(OID, sueldo, fecha_inicio, fecha_fin, OID_T, OID_EO, OID_AM)
+            PK(OID), FK(OID_T)/Trabajador, FK(OID_EO)/Escuela_Oficios, FK(OID_AM)/Apadrinamiento             
     
     SueldoPagado:
-        SueldoPagado(OID, cantidad, fecha, OID_T, OID_M)
-	        PK(OID), FK(OID_T)/Trabajador, FK(OID_M)/Mision
+        SueldoPagado(OID, cantidad, fecha, OID_T, OID_EO, OID_AM)
+	        PK(OID), FK(OID_T)/Trabajador, FK(OID_EO)/Escuela_Oficios, FK(OID_AM)/Apadrinamiento
     
     Proyecto:
         Proyecto(OID, titulo, contenido, capitalEstimado, fecha_inicio, fecha_fin)
             PK(OID), AK(titulo)
 
     ContieneAProyecto:
-        ContieneAProyecto(OID, OID_P, OID_M) 
-            PK(OID), FK(OID_P)/Proyecto, FK(OID_M)/Mision                
+        ContieneAProyecto(OID, OID_P,  OID_EO, OID_B, OID_AM) 
+            PK(OID), FK(OID_P)/Proyecto, FK(OID_EO)/Escuela_Oficios, FK(OID_AM)/Apadrinamiento, FK(B)/Becados                
 
     ActividadProyecto: 
         ActividadProyecto(OID, titulo, descripcion, coste, fecha_inicio, fecha_fin)
