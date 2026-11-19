@@ -23,6 +23,7 @@ class Trabajador{
     NIF VARCHAR
     correo VARCHAR
     telefono INT
+    rol VARCHAR
 }
 
 class Empleado{

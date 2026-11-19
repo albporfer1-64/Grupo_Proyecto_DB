@@ -50,7 +50,7 @@ Nivel 3 (TODO):
             PK(OID), FK(OID_AO)/AsignaturaOficios, FK(OID_EO)/Estudiante_O        
 
     Trabajador:
-        Trabajador(OID, NIF, correo, telefono)
+        Trabajador(OID, NIF, correo, telefono, rol)
             PK(OID), AK(NIF), AK(correo), AK(telefono), FK(OID)/Persona
 
 
