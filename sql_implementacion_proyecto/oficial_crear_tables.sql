@@ -213,7 +213,12 @@ CREATE TABLE ContratoTrabajador (
     OID_AM INT,
     FOREIGN KEY (OID_T) REFERENCES Trabajador(OID),
     FOREIGN KEY (OID_EO) REFERENCES Escuela_Oficios(OID),
-    FOREIGN KEY (OID_AM) REFERENCES Apadrinamiento(OID)
+    FOREIGN KEY (OID_AM) REFERENCES Apadrinamiento(OID),
+    -- Restricción de arco exclusivo: Solo puede pertenecer a Escuela_Oficios o Apadrinamiento
+    CHECK (
+        (OID_EO IS NOT NULL AND OID_AM IS NULL) OR 
+        (OID_EO IS NULL AND OID_AM IS NOT NULL)
+    )
 );
 
 CREATE TABLE SueldoPagado (
@@ -225,7 +230,12 @@ CREATE TABLE SueldoPagado (
     OID_AM INT,
     FOREIGN KEY (OID_T) REFERENCES Trabajador(OID),
     FOREIGN KEY (OID_EO) REFERENCES Escuela_Oficios(OID),
-    FOREIGN KEY (OID_AM) REFERENCES Apadrinamiento(OID)
+    FOREIGN KEY (OID_AM) REFERENCES Apadrinamiento(OID),
+    -- Restricción de arco exclusivo
+    CHECK (
+        (OID_EO IS NOT NULL AND OID_AM IS NULL) OR 
+        (OID_EO IS NULL AND OID_AM IS NOT NULL)
+    )
 );
 
 CREATE TABLE Proyecto (
@@ -246,7 +256,13 @@ CREATE TABLE ContieneAProyecto (
     FOREIGN KEY (OID_P) REFERENCES Proyecto(OID),
     FOREIGN KEY (OID_EO) REFERENCES Escuela_Oficios(OID),
     FOREIGN KEY (OID_B) REFERENCES Becados(OID),
-    FOREIGN KEY (OID_AM) REFERENCES Apadrinamiento(OID)
+    FOREIGN KEY (OID_AM) REFERENCES Apadrinamiento(OID),
+    -- Restricción de arco exclusivo triple: Solo puede estar asociado a UNA de las tres misiones a la vez
+    CHECK (
+        (OID_EO IS NOT NULL AND OID_B IS NULL AND OID_AM IS NULL) OR
+        (OID_EO IS NULL AND OID_B IS NOT NULL AND OID_AM IS NULL) OR
+        (OID_EO IS NULL AND OID_B IS NULL AND OID_AM IS NOT NULL)
+    )
 );
 
 CREATE TABLE ActividadProyecto (
