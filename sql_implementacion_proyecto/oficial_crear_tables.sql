@@ -47,7 +47,7 @@ CREATE TABLE Persona (
     OID INT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     apellidos VARCHAR(150) NOT NULL,
-    fechaNacimiento DATE NOT NULL
+    fechaNacimiento DATE 
 );
 
 -- NIVEL 1: Jerarquía disjunta
