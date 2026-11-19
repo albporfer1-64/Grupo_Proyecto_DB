@@ -30,11 +30,11 @@
 
 ## Fase 3: Modelo Tecnológico (Scripts SQL en MariaDB)
 
-- [ ] 6.1 Crear script de Tablas (`01_tablas.sql`): Incluir sentencias CREATE TABLE, tipos de datos, PRIMARY KEYS (PK) y FOREIGN KEYS (FK).
+- [X] 6.1 Crear script de Tablas (`01_tablas.sql`): Incluir sentencias CREATE TABLE, tipos de datos, PRIMARY KEYS (PK) y FOREIGN KEYS (FK).
 
-- [ ] 6.1 Añadir restricciones al script de tablas (NOT NULL, UNIQUE, CHECK).
+- [X] 6.1 Añadir restricciones al script de tablas (NOT NULL, UNIQUE, CHECK).
 
-- [ ] 6.2 Crear script de Inserciones (`02_datos.sql`): Redactar sentencias INSERT con suficientes datos de prueba y coherentes con las claves foráneas.
+- [X] 6.2 Crear script de Inserciones (`02_datos.sql`): Redactar sentencias INSERT con suficientes datos de prueba y coherentes con las claves foráneas.
 
 - [ ] 6.3 Crear script de Consultas (`03_consultas.sql`): Diseñar consultas SQL (usando SELECT, JOIN, WHERE, GROUP BY) que aporten valor al negocio.
 
