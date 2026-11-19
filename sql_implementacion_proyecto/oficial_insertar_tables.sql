@@ -51,12 +51,14 @@ INSERT INTO Empleado (OID, NIF, correo, telefono, rol) VALUES
 (4, '29456123P', 'elena.gomez@atachiarare.org', '+34633445566', 'Coordinadora de Apadrinamientos'),
 (5, '28765432M', 'carlos.martinez@atachiarare.org', '+34600112233', 'Tesorero y Contabilidad');
 
-INSERT INTO Apadrinado (OID, poblacion, nombreTutor, telefonoTutor, correoTutor, fechaFinApadrinado, OID_AM) VALUES
-(9, 'Kpalimé', 'Mamadou Diallo', '+22890112233', 'mamadou.diallo@togo.tg', NULL, 103),
-(10, 'Kpalimé', 'Grace Lawson', '+22890445566', 'grace.lawson@togo.tg', '2030-03-25', 103),
-(11, 'Kpalimé', 'Samuel Gnassingbe', '+22890778899', 'samuel.g@togo.tg', '2024-05-10', 103);
+-- Respetando el orden: OID, fechaFinApadrinado, localidad, nombreTutor, telefonoTutor, emailTutor, OID_AM
+INSERT INTO Apadrinado (OID, fechaFinApadrinado, localidad, nombreTutor, telefonoTutor, emailTutor, OID_AM) VALUES
+(9, NULL, 'Kpalimé', 'Mamadou Diallo', '+22890112233', 'mamadou.diallo@togo.tg', 103),
+(10, '2030-03-25', 'Kpalimé', 'Grace Lawson', '+22890445566', 'grace.lawson@togo.tg', 103),
+(11, '2024-05-10', 'Kpalimé', 'Samuel Gnassingbe', '+22890778899', 'samuel.g@togo.tg', 103);
 
-INSERT INTO Trabajador (OID, NIF, correo, telefono, cargo) VALUES
+-- Respetando el nombre de columna: rol
+INSERT INTO Trabajador (OID, NIF, correo, telefono, rol) VALUES
 (1, 'TG-8849201A', 'kwame.nkrumah@atachiarare.org', '+22893111222', 'Profesor'),
 (2, 'TG-7738192B', 'afi.koffi@atachiarare.org', '+22893333444', 'Profesor'),
 (3, 'TG-6627183C', 'kodjo.toure@atachiarare.org', '+22893555666', 'Profesor'),
@@ -66,12 +68,14 @@ INSERT INTO Trabajador (OID, NIF, correo, telefono, cargo) VALUES
 -- ==========================================
 -- NIVEL 4: CONTRATOS (APADRINADOS Y TRABAJADORES)
 -- ==========================================
-INSERT INTO ContratoPadrino (OID, cantidad, fecha_inicio, fecha_fin, OID_A, OID_B) VALUES
-(1601, 30.00, '2022-01-01', NULL, 9, 6),
-(1602, 35.00, '2021-09-01', NULL, 10, 5),
-(1603, 30.00, '2018-05-10', '2024-05-10', 11, 7);
+-- Respetando: aportacion en lugar de cantidad, y el orden OID_Be, OID_A
+INSERT INTO ContratoPadrino (OID, aportacion, fecha_inicio, fecha_fin, OID_Be, OID_A) VALUES
+(1601, 30.00, '2022-01-01', NULL, 6, 9),
+(1602, 35.00, '2021-09-01', NULL, 5, 10),
+(1603, 30.00, '2018-05-10', '2024-05-10', 7, 11);
 
-INSERT INTO ContratoTrabajador (OID, sueldoBase, fecha_inicio, fecha_fin, OID_T, OID_EO, OID_AM) VALUES
+-- Respetando el nombre de columna: sueldo
+INSERT INTO ContratoTrabajador (OID, sueldo, fecha_inicio, fecha_fin, OID_T, OID_EO, OID_AM) VALUES
 (901, 450.00, '2023-01-01', NULL, 1, 101, NULL),
 (902, 420.00, '2023-03-15', NULL, 2, NULL, 103),
 (903, 460.00, '2024-02-01', '2026-12-31', 3, 101, NULL),
