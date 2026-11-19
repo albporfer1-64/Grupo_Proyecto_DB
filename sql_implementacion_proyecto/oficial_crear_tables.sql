@@ -2,7 +2,9 @@ DROP DATABASE IF EXISTS practica;
 CREATE DATABASE practica;
 USE practica;
 
+-- =========================================================================
 -- 1. LIMPIEZA DE TABLAS (Orden inverso a las dependencias)
+-- =========================================================================
 DROP TABLE IF EXISTS AccionesMarketing;
 DROP TABLE IF EXISTS TienePago;
 DROP TABLE IF EXISTS ContratoPadrino;
@@ -33,9 +35,11 @@ DROP TABLE IF EXISTS Becados;
 DROP TABLE IF EXISTS Escuela_Oficios;
 DROP TABLE IF EXISTS Persona;
 
--- ==========================================
+-- =========================================================================
+-- 2. CREACIÓN DE TABLAS
+-- =========================================================================
+
 -- NIVEL 0
--- ==========================================
 CREATE TABLE Persona (
     OID INT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
@@ -43,9 +47,7 @@ CREATE TABLE Persona (
     fechaNacimiento DATE NOT NULL
 );
 
--- ==========================================
 -- NIVEL 1: Jerarquía disjunta (Mision desaparece)
--- ==========================================
 CREATE TABLE Escuela_Oficios (
     OID INT PRIMARY KEY,
     Titulo VARCHAR(150) UNIQUE NOT NULL,
@@ -67,9 +69,7 @@ CREATE TABLE Apadrinamiento (
     Descripcion TEXT
 );
 
--- ==========================================
 -- NIVEL 2
--- ==========================================
 CREATE TABLE Curso (
     OID INT PRIMARY KEY,
     Titulo VARCHAR(150) NOT NULL,
@@ -102,9 +102,7 @@ CREATE TABLE Apadrinado (
     FOREIGN KEY (OID_AM) REFERENCES Apadrinamiento(OID)
 );
 
--- ==========================================
 -- NIVEL 3
--- ==========================================
 CREATE TABLE AsignaturaOficios (
     OID INT PRIMARY KEY,
     titulo VARCHAR(150) NOT NULL
@@ -177,9 +175,7 @@ CREATE TABLE NotaApadrinado (
     FOREIGN KEY (OID_AP) REFERENCES AsignaturaApadrinado(OID)
 );
 
--- ==========================================
 -- NIVEL 4
--- ==========================================
 CREATE TABLE Benefactor (
     OID INT PRIMARY KEY,
     NIF VARCHAR(20) UNIQUE NOT NULL,
@@ -200,9 +196,7 @@ CREATE TABLE Empleado (
     FOREIGN KEY (OID) REFERENCES Persona(OID)
 );
 
--- ==========================================
--- NIVEL 5
--- ==========================================
+-- NIVEL 5 (Con arcos exclusivos en las herencias de Misión)
 CREATE TABLE ContratoTrabajador (
     OID INT PRIMARY KEY,
     sueldo DECIMAL(10, 2),
@@ -214,7 +208,6 @@ CREATE TABLE ContratoTrabajador (
     FOREIGN KEY (OID_T) REFERENCES Trabajador(OID),
     FOREIGN KEY (OID_EO) REFERENCES Escuela_Oficios(OID),
     FOREIGN KEY (OID_AM) REFERENCES Apadrinamiento(OID),
-    -- Restricción de arco exclusivo: Solo puede pertenecer a Escuela_Oficios o Apadrinamiento
     CHECK (
         (OID_EO IS NOT NULL AND OID_AM IS NULL) OR 
         (OID_EO IS NULL AND OID_AM IS NOT NULL)
@@ -231,7 +224,6 @@ CREATE TABLE SueldoPagado (
     FOREIGN KEY (OID_T) REFERENCES Trabajador(OID),
     FOREIGN KEY (OID_EO) REFERENCES Escuela_Oficios(OID),
     FOREIGN KEY (OID_AM) REFERENCES Apadrinamiento(OID),
-    -- Restricción de arco exclusivo
     CHECK (
         (OID_EO IS NOT NULL AND OID_AM IS NULL) OR 
         (OID_EO IS NULL AND OID_AM IS NOT NULL)
@@ -257,7 +249,6 @@ CREATE TABLE ContieneAProyecto (
     FOREIGN KEY (OID_EO) REFERENCES Escuela_Oficios(OID),
     FOREIGN KEY (OID_B) REFERENCES Becados(OID),
     FOREIGN KEY (OID_AM) REFERENCES Apadrinamiento(OID),
-    -- Restricción de arco exclusivo triple: Solo puede estar asociado a UNA de las tres misiones a la vez
     CHECK (
         (OID_EO IS NOT NULL AND OID_B IS NULL AND OID_AM IS NULL) OR
         (OID_EO IS NULL AND OID_B IS NOT NULL AND OID_AM IS NULL) OR
@@ -333,12 +324,13 @@ CREATE TABLE AccionesMarketing (
 );
 
 
--- ==========================================
--- DISPARADORES (TRIGGERS) PARA ASEGURAR LA RN04
--- ==========================================
+-- =========================================================================
+-- 3. DISPARADORES (TRIGGERS) PARA REGLAS DE NEGOCIO (RN01, RN02, RN04)
+-- =========================================================================
 DELIMITER //
 
-CREATE TRIGGER TRG_RN04_Apadrinado BEFORE INSERT ON Apadrinado
+-- RN04: Impedir abrir nueva misión (INSERT) si ya tiene ayuda económica activa
+CREATE TRIGGER TRG_RN04_Apadrinado_INS BEFORE INSERT ON Apadrinado
 FOR EACH ROW
 BEGIN
     DECLARE num_activos INT;
@@ -355,7 +347,7 @@ BEGIN
     END IF;
 END; //
 
-CREATE TRIGGER TRG_RN04_Estudiante_B BEFORE INSERT ON Estudiante_B
+CREATE TRIGGER TRG_RN04_Estudiante_B_INS BEFORE INSERT ON Estudiante_B
 FOR EACH ROW
 BEGIN
     DECLARE num_activos INT;
@@ -372,7 +364,7 @@ BEGIN
     END IF;
 END; //
 
-CREATE TRIGGER TRG_RN04_Estudiante_O BEFORE INSERT ON Estudiante_O
+CREATE TRIGGER TRG_RN04_Estudiante_O_INS BEFORE INSERT ON Estudiante_O
 FOR EACH ROW
 BEGIN
     DECLARE num_activos INT;
@@ -386,6 +378,167 @@ BEGIN
     
     IF num_activos > 0 THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'RN04: La persona ya está recibiendo ayuda económica activa y no puede abrir otra nueva misión.';
+    END IF;
+END; //
+
+-- RN04: Impedir reactivar (UPDATE) una misión antigua si ya tiene otra abierta
+CREATE TRIGGER TRG_RN04_Apadrinado_UPD BEFORE UPDATE ON Apadrinado
+FOR EACH ROW
+BEGIN
+    DECLARE num_activos INT;
+    IF NEW.fechaFinApadrinado IS NULL OR NEW.fechaFinApadrinado >= CURRENT_DATE THEN
+        SELECT COUNT(*) INTO num_activos FROM (
+            SELECT OID FROM Estudiante_B WHERE OID = NEW.OID AND (fecha_fin IS NULL OR fecha_fin >= CURRENT_DATE)
+            UNION ALL
+            SELECT OID FROM Estudiante_O WHERE OID = NEW.OID AND (fecha_fin IS NULL OR fecha_fin >= CURRENT_DATE)
+            UNION ALL
+            SELECT OID FROM Apadrinado WHERE OID = NEW.OID AND OID <> OLD.OID AND (fechaFinApadrinado IS NULL OR fechaFinApadrinado >= CURRENT_DATE)
+        ) AS activos;
+        
+        IF num_activos > 0 THEN
+            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'RN04: No se puede reactivar el apadrinamiento; la persona ya tiene otra ayuda activa.';
+        END IF;
+    END IF;
+END; //
+
+CREATE TRIGGER TRG_RN04_Estudiante_B_UPD BEFORE UPDATE ON Estudiante_B
+FOR EACH ROW
+BEGIN
+    DECLARE num_activos INT;
+    IF NEW.fecha_fin IS NULL OR NEW.fecha_fin >= CURRENT_DATE THEN
+        SELECT COUNT(*) INTO num_activos FROM (
+            SELECT OID FROM Estudiante_B WHERE OID = NEW.OID AND OID <> OLD.OID AND (fecha_fin IS NULL OR fecha_fin >= CURRENT_DATE)
+            UNION ALL
+            SELECT OID FROM Estudiante_O WHERE OID = NEW.OID AND (fecha_fin IS NULL OR fecha_fin >= CURRENT_DATE)
+            UNION ALL
+            SELECT OID FROM Apadrinado WHERE OID = NEW.OID AND (fechaFinApadrinado IS NULL OR fechaFinApadrinado >= CURRENT_DATE)
+        ) AS activos;
+        
+        IF num_activos > 0 THEN
+            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'RN04: No se puede reactivar la beca; la persona ya tiene otra ayuda activa.';
+        END IF;
+    END IF;
+END; //
+
+CREATE TRIGGER TRG_RN04_Estudiante_O_UPD BEFORE UPDATE ON Estudiante_O
+FOR EACH ROW
+BEGIN
+    DECLARE num_activos INT;
+    IF NEW.fecha_fin IS NULL OR NEW.fecha_fin >= CURRENT_DATE THEN
+        SELECT COUNT(*) INTO num_activos FROM (
+            SELECT OID FROM Estudiante_B WHERE OID = NEW.OID AND (fecha_fin IS NULL OR fecha_fin >= CURRENT_DATE)
+            UNION ALL
+            SELECT OID FROM Estudiante_O WHERE OID = NEW.OID AND OID <> OLD.OID AND (fecha_fin IS NULL OR fecha_fin >= CURRENT_DATE)
+            UNION ALL
+            SELECT OID FROM Apadrinado WHERE OID = NEW.OID AND (fechaFinApadrinado IS NULL OR fechaFinApadrinado >= CURRENT_DATE)
+        ) AS activos;
+        
+        IF num_activos > 0 THEN
+            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'RN04: No se puede reactivar la escuela de oficios; la persona ya tiene otra ayuda activa.';
+        END IF;
+    END IF;
+END; //
+
+-- RN04: Impedir que alguien con ayuda económica activa se registre en otros roles de Persona
+CREATE TRIGGER TRG_RN04_Trabajador_INS BEFORE INSERT ON Trabajador
+FOR EACH ROW
+BEGIN
+    DECLARE ayuda_activa INT;
+    SELECT COUNT(*) INTO ayuda_activa FROM (
+        SELECT OID FROM Estudiante_B WHERE OID = NEW.OID AND (fecha_fin IS NULL OR fecha_fin >= CURRENT_DATE)
+        UNION ALL
+        SELECT OID FROM Estudiante_O WHERE OID = NEW.OID AND (fecha_fin IS NULL OR fecha_fin >= CURRENT_DATE)
+        UNION ALL
+        SELECT OID FROM Apadrinado WHERE OID = NEW.OID AND (fechaFinApadrinado IS NULL OR fechaFinApadrinado >= CURRENT_DATE)
+    ) AS activos;
+
+    IF ayuda_activa > 0 THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'RN04: Una persona con ayuda económica activa no puede ser Trabajador.';
+    END IF;
+END; //
+
+CREATE TRIGGER TRG_RN04_Empleado_INS BEFORE INSERT ON Empleado
+FOR EACH ROW
+BEGIN
+    DECLARE ayuda_activa INT;
+    SELECT COUNT(*) INTO ayuda_activa FROM (
+        SELECT OID FROM Estudiante_B WHERE OID = NEW.OID AND (fecha_fin IS NULL OR fecha_fin >= CURRENT_DATE)
+        UNION ALL
+        SELECT OID FROM Estudiante_O WHERE OID = NEW.OID AND (fecha_fin IS NULL OR fecha_fin >= CURRENT_DATE)
+        UNION ALL
+        SELECT OID FROM Apadrinado WHERE OID = NEW.OID AND (fechaFinApadrinado IS NULL OR fechaFinApadrinado >= CURRENT_DATE)
+    ) AS activos;
+
+    IF ayuda_activa > 0 THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'RN04: Una persona con ayuda económica activa no puede ser Empleado.';
+    END IF;
+END; //
+
+CREATE TRIGGER TRG_RN04_Benefactor_INS BEFORE INSERT ON Benefactor
+FOR EACH ROW
+BEGIN
+    DECLARE ayuda_activa INT;
+    SELECT COUNT(*) INTO ayuda_activa FROM (
+        SELECT OID FROM Estudiante_B WHERE OID = NEW.OID AND (fecha_fin IS NULL OR fecha_fin >= CURRENT_DATE)
+        UNION ALL
+        SELECT OID FROM Estudiante_O WHERE OID = NEW.OID AND (fecha_fin IS NULL OR fecha_fin >= CURRENT_DATE)
+        UNION ALL
+        SELECT OID FROM Apadrinado WHERE OID = NEW.OID AND (fechaFinApadrinado IS NULL OR fechaFinApadrinado >= CURRENT_DATE)
+    ) AS activos;
+
+    IF ayuda_activa > 0 THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'RN04: Una persona con ayuda económica activa no puede ser Benefactor.';
+    END IF;
+END; //
+
+-- RN02: Solo 1 contrato vigente por apadrinado
+CREATE TRIGGER TRG_RN02_ContratoPadrino_INS BEFORE INSERT ON ContratoPadrino
+FOR EACH ROW
+BEGIN
+    DECLARE contratos_vigentes INT;
+    IF NEW.fecha_fin IS NULL OR NEW.fecha_fin >= CURRENT_DATE THEN
+        SELECT COUNT(*) INTO contratos_vigentes 
+        FROM ContratoPadrino 
+        WHERE OID_A = NEW.OID_A 
+          AND (fecha_fin IS NULL OR fecha_fin >= CURRENT_DATE);
+          
+        IF contratos_vigentes > 0 THEN
+            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'RN02: Este apadrinado ya tiene un contrato vigente con un benefactor.';
+        END IF;
+    END IF;
+END; //
+
+CREATE TRIGGER TRG_RN02_ContratoPadrino_UPD BEFORE UPDATE ON ContratoPadrino
+FOR EACH ROW
+BEGIN
+    DECLARE contratos_vigentes INT;
+    IF NEW.fecha_fin IS NULL OR NEW.fecha_fin >= CURRENT_DATE THEN
+        SELECT COUNT(*) INTO contratos_vigentes 
+        FROM ContratoPadrino 
+        WHERE OID_A = NEW.OID_A 
+          AND OID <> OLD.OID
+          AND (fecha_fin IS NULL OR fecha_fin >= CURRENT_DATE);
+          
+        IF contratos_vigentes > 0 THEN
+            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'RN02: No se puede reactivar el contrato; el apadrinado ya tiene otro contrato vigente.';
+        END IF;
+    END IF;
+END; //
+
+-- RN01: Apadrinamiento activo solo para menores de 18 años
+CREATE TRIGGER TRG_RN01_Apadrinado_Edad BEFORE INSERT ON Apadrinado
+FOR EACH ROW
+BEGIN
+    DECLARE fecha_nac DATE;
+    DECLARE edad INT;
+    
+    IF NEW.fechaFinApadrinado IS NULL OR NEW.fechaFinApadrinado >= CURRENT_DATE THEN
+        SELECT fechaNacimiento INTO fecha_nac FROM Persona WHERE OID = NEW.OID;
+        SET edad = TIMESTAMPDIFF(YEAR, fecha_nac, CURRENT_DATE);
+        
+        IF edad >= 18 THEN
+            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'RN01: La misión de apadrinamiento es solo para menores de 18 años.';
+        END IF;
     END IF;
 END; //
 
