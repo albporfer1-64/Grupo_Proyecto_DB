@@ -8,6 +8,8 @@ INSERT INTO Persona (OID, nombre, apellidos, fechaNacimiento) VALUES
 (1, 'Kwame', 'Nkrumah Abalo', '1982-04-15'),
 (2, 'Afi', 'Koffi Mensah', '1988-09-22'),
 (3, 'Kodjo', 'Toure Bassabi', '1979-11-03'),
+(15, 'Fatou', 'Diop', '1992-05-14'),
+(16, 'Koffi', 'Salami', '1985-11-20'),
 -- Empleados de España (4 - 5)
 (4, 'Elena', 'Gómez Navarro', '1990-02-14'),
 (5, 'Carlos', 'Martínez Ruiz', '1985-07-30'),
@@ -78,10 +80,13 @@ INSERT INTO NotaOficios (OID, nota, OID_AO, OID_EO) VALUES
 (402, 7.50, 302, 13),
 (403, 9.20, 303, 14);
 
-INSERT INTO Trabajador (OID, NIF, correo, telefono) VALUES
-(1, 'TG-8849201A', 'kwame.nkrumah@atachiarare.org', '+22893111222'),
-(2, 'TG-7738192B', 'afi.koffi@atachiarare.org', '+22893333444'),
-(3, 'TG-6627183C', 'kodjo.toure@atachiarare.org', '+22893555666');
+INSERT INTO Trabajador (OID, NIF, correo, telefono, rol) VALUES
+(1, 'TG-8849201A', 'kwame.nkrumah@atachiarare.org', '+22893111222', 'Profesor'),
+(2, 'TG-7738192B', 'afi.koffi@atachiarare.org', '+22893333444', 'Profesor'),
+(3, 'TG-6627183C', 'kodjo.toure@atachiarare.org', '+22893555666', 'Profesor');
+(15, 'TG-5544332D', 'fatou.diop@atachiarare.org', '+22899887766', 'Administrativa'),
+(16, 'TG-1122334E', 'koffi.salami@atachiarare.org', '+22899775533', 'Personal de Limpieza');
+
 
 INSERT INTO TrabajaEnOficios (OID, OID_AO, OID_T) VALUES
 (501, 301, 1),
@@ -122,13 +127,17 @@ INSERT INTO Empleado (OID, NIF, correo, telefono, rol) VALUES
 INSERT INTO ContratoTrabajador (OID, sueldo, fecha_inicio, fecha_fin, OID_T, OID_EO, OID_AM) VALUES
 (901, 450.00, '2023-01-01', NULL, 1, 101, NULL),
 (902, 420.00, '2023-03-15', NULL, 2, NULL, 103),
-(903, 460.00, '2024-02-01', '2026-12-31', 3, 101, NULL);
+(903, 460.00, '2024-02-01', '2026-12-31', 3, 101, NULL),
+(904, 400.00, '2025-01-01', NULL, 15, 101, NULL), 
+(905, 350.00, '2025-02-15', NULL, 16, NULL, 103); 
 
 -- Sueldos Pagados (Arco exclusivo)
 INSERT INTO SueldoPagado (OID, cantidad, fecha, OID_T, OID_EO, OID_AM) VALUES
 (1001, 450.00, '2026-10-31', 1, 101, NULL),
 (1002, 420.00, '2026-10-31', 2, NULL, 103),
-(1003, 460.00, '2026-10-31', 3, 101, NULL);
+(1003, 460.00, '2026-10-31', 3, 101, NULL),
+(1004, 400.00, '2026-10-31', 15, 101, NULL),
+(1005, 350.00, '2026-10-31', 16, NULL, 103);
 
 -- Proyectos y Actividades
 INSERT INTO Proyecto (OID, titulo, contenido, capitalEstimado, fecha_inicio, fecha_fin) VALUES

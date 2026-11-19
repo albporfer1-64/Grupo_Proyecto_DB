@@ -52,21 +52,21 @@ CREATE TABLE Escuela_Oficios (
     OID INT PRIMARY KEY,
     Titulo VARCHAR(150) UNIQUE NOT NULL,
     Localidad VARCHAR(100) NOT NULL,
-    Descripcion TEXT
+    Descripcion TEXT NOT NULL
 );
 
 CREATE TABLE Becados (
     OID INT PRIMARY KEY,
     Titulo VARCHAR(150) UNIQUE NOT NULL,
     Localidad VARCHAR(100) NOT NULL,
-    Descripcion TEXT
+    Descripcion TEXT NOT NULL
 );
 
 CREATE TABLE Apadrinamiento (
     OID INT PRIMARY KEY,
     Titulo VARCHAR(150) UNIQUE NOT NULL,
     Localidad VARCHAR(100) NOT NULL,
-    Descripcion TEXT
+    Descripcion TEXT NOT NULL
 );
 
 -- NIVEL 2
@@ -142,6 +142,7 @@ CREATE TABLE Trabajador (
     NIF VARCHAR(20) UNIQUE NOT NULL,
     correo VARCHAR(150) UNIQUE NOT NULL,
     telefono VARCHAR(20) UNIQUE NOT NULL,
+    rol VARCHAR(100),
     FOREIGN KEY (OID) REFERENCES Persona(OID)
 );
 
