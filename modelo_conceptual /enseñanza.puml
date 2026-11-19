@@ -66,6 +66,7 @@ class NotaOficios{
 }
 
 Trabajador "1..*"--"*" AsignaturaOficios
+Estudiante_O "*"-right-"1" EscuelaDeOficios
 Estudiante_O "*"--"*" AsignaturaOficios
 Curso "*"--"*" AsignaturaOficios
 Trabajador "1..*"--"*" AsignaturaApadrinado
