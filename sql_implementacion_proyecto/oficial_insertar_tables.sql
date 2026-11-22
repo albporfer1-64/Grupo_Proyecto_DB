@@ -5,7 +5,7 @@ USE practica;
 -- ==========================================
 INSERT INTO Escuela_Oficios (OID, Titulo, Localidad, Descripcion) VALUES
 (101, 'Centro Politécnico Atachiarare', 'Lomé', 'Formación profesional en mecánica, informática, electricidad y albañilería para jóvenes mayores de edad.');
-
+ 
 INSERT INTO Becados (OID, Titulo, Localidad, Descripcion) VALUES
 (102, 'Programa Impulso Universitario Togo', 'Kara', 'Becas de estudio superior y manutención para antiguos apadrinados.');
 

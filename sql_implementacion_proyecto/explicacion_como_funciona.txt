@@ -1,0 +1,20 @@
+Este archivo deberá eliminarse antes de la entrega oficial; es para tener un breve entendimiento de lo que tenemos 
+antes y que cosas deberíamos cambiar, añadir o quitar.
+
+El archivo oficial_crear_tables es el primero a implementar para la creación base de todos las tablas.
+
+El archivo oficial_insertar_tables es el segundo en implementarse (se implementa mucho antes de los triggers para que al querer 
+insertar información como el historial de antiguos becados no se quede bloqueado al ser los apadrinados ya mayores de 18 años en 
+la fecha actual). A este archivo habrá que añadirle muchísima más información que insertar, para facilitar la comprobación del 
+buen funcionamiento de la base de datos.
+
+El archivo triggers sería el siguiente archivo a implementar, para establecer las normativas del negocio, aunque 
+también podría primero implementarse el archivo de las consultas ya que este no hace ningún cambio en cuanto a las bases de datos
+que debería bloquearse. Por ahora en consultas solo tenemos una breve representación de ideas por ejemplo la consulta de los 
+datos de los apadrinados y sus notas medias (esto deberíamos poder hacerlo también con los de las escuelas de oficio por ejemplo)
+
+En el archivo de comprobacion_crear_tables deberá implementarse después de el archivo de triggers si o si, porque si no dichos
+movimientos no se bloquearan y podrá insertarse información errónea en los archivos.
+
+El archivo funciones_procedimientos es el último en ejecutarse, este contiene las funciones como cambiar padrino. Este archivo,
+al igual que el de consultas debe desarrollarse todavía aún más. 
