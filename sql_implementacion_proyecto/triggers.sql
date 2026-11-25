@@ -80,11 +80,11 @@ END //
 
 
 -- -------------------------------------------------------------------------
--- RN04 (Parte A): Exclusividad entre misiones de ayuda (Altas - INSERT)
+-- RN03 (Parte A): Exclusividad entre misiones de ayuda (Altas - INSERT)
 -- -------------------------------------------------------------------------
 
-DROP TRIGGER IF EXISTS TRG_RN04_Apadrinado_INS //
-CREATE TRIGGER TRG_RN04_Apadrinado_INS
+DROP TRIGGER IF EXISTS TRG_RN03_Apadrinado_INS //
+CREATE TRIGGER TRG_RN03_Apadrinado_INS
 BEFORE INSERT ON Apadrinado
 FOR EACH ROW
 BEGIN
@@ -100,12 +100,12 @@ BEGIN
     
     IF v_num_activos > 0 THEN
         SIGNAL SQLSTATE '45000' 
-        SET MESSAGE_TEXT = 'RN04: La persona ya está recibiendo ayuda económica activa y no puede abrir otra nueva misión.';
+        SET MESSAGE_TEXT = 'RN03: La persona ya está recibiendo ayuda económica activa y no puede abrir otra nueva misión.';
     END IF;
 END //
 
-DROP TRIGGER IF EXISTS TRG_RN04_Estudiante_B_INS //
-CREATE TRIGGER TRG_RN04_Estudiante_B_INS
+DROP TRIGGER IF EXISTS TRG_RN03_Estudiante_B_INS //
+CREATE TRIGGER TRG_RN03_Estudiante_B_INS
 BEFORE INSERT ON Estudiante_B
 FOR EACH ROW
 BEGIN
@@ -121,12 +121,12 @@ BEGIN
     
     IF v_num_activos > 0 THEN
         SIGNAL SQLSTATE '45000' 
-        SET MESSAGE_TEXT = 'RN04: La persona ya está recibiendo ayuda económica activa y no puede abrir otra nueva misión.';
+        SET MESSAGE_TEXT = 'RN03: La persona ya está recibiendo ayuda económica activa y no puede abrir otra nueva misión.';
     END IF;
 END //
 
-DROP TRIGGER IF EXISTS TRG_RN04_Estudiante_O_INS //
-CREATE TRIGGER TRG_RN04_Estudiante_O_INS
+DROP TRIGGER IF EXISTS TRG_RN03_Estudiante_O_INS //
+CREATE TRIGGER TRG_RN03_Estudiante_O_INS
 BEFORE INSERT ON Estudiante_O
 FOR EACH ROW
 BEGIN
@@ -142,17 +142,17 @@ BEGIN
     
     IF v_num_activos > 0 THEN
         SIGNAL SQLSTATE '45000' 
-        SET MESSAGE_TEXT = 'RN04: La persona ya está recibiendo ayuda económica activa y no puede abrir otra nueva misión.';
+        SET MESSAGE_TEXT = 'RN03: La persona ya está recibiendo ayuda económica activa y no puede abrir otra nueva misión.';
     END IF;
 END //
 
 
 -- -------------------------------------------------------------------------
--- RN04 (Parte B): Exclusividad entre misiones de ayuda (Reactivaciones - UPDATE)
+-- RN03 (Parte B): Exclusividad entre misiones de ayuda (Reactivaciones - UPDATE)
 -- -------------------------------------------------------------------------
 
-DROP TRIGGER IF EXISTS TRG_RN04_Apadrinado_UPD //
-CREATE TRIGGER TRG_RN04_Apadrinado_UPD
+DROP TRIGGER IF EXISTS TRG_RN03_Apadrinado_UPD //
+CREATE TRIGGER TRG_RN03_Apadrinado_UPD
 BEFORE UPDATE ON Apadrinado
 FOR EACH ROW
 BEGIN
@@ -169,13 +169,13 @@ BEGIN
         
         IF v_num_activos > 0 THEN
             SIGNAL SQLSTATE '45000' 
-            SET MESSAGE_TEXT = 'RN04: No se puede reactivar el apadrinamiento; la persona ya tiene otra ayuda activa.';
+            SET MESSAGE_TEXT = 'RN03: No se puede reactivar el apadrinamiento; la persona ya tiene otra ayuda activa.';
         END IF;
     END IF;
 END //
 
-DROP TRIGGER IF EXISTS TRG_RN04_Estudiante_B_UPD //
-CREATE TRIGGER TRG_RN04_Estudiante_B_UPD
+DROP TRIGGER IF EXISTS TRG_RN03_Estudiante_B_UPD //
+CREATE TRIGGER TRG_RN03_Estudiante_B_UPD
 BEFORE UPDATE ON Estudiante_B
 FOR EACH ROW
 BEGIN
@@ -192,13 +192,13 @@ BEGIN
         
         IF v_num_activos > 0 THEN
             SIGNAL SQLSTATE '45000' 
-            SET MESSAGE_TEXT = 'RN04: No se puede reactivar la beca; la persona ya tiene otra ayuda activa.';
+            SET MESSAGE_TEXT = 'RN03: No se puede reactivar la beca; la persona ya tiene otra ayuda activa.';
         END IF;
     END IF;
 END //
 
-DROP TRIGGER IF EXISTS TRG_RN04_Estudiante_O_UPD //
-CREATE TRIGGER TRG_RN04_Estudiante_O_UPD
+DROP TRIGGER IF EXISTS TRG_RN03_Estudiante_O_UPD //
+CREATE TRIGGER TRG_RN03_Estudiante_O_UPD
 BEFORE UPDATE ON Estudiante_O
 FOR EACH ROW
 BEGIN
@@ -215,18 +215,18 @@ BEGIN
         
         IF v_num_activos > 0 THEN
             SIGNAL SQLSTATE '45000' 
-            SET MESSAGE_TEXT = 'RN04: No se puede reactivar la escuela de oficios; la persona ya tiene otra ayuda activa.';
+            SET MESSAGE_TEXT = 'RN03: No se puede reactivar la escuela de oficios; la persona ya tiene otra ayuda activa.';
         END IF;
     END IF;
 END //
 
 
 -- -------------------------------------------------------------------------
--- RN04 (Parte C): Incompatibilidad de ayuda activa con otros roles
+-- RN03 (Parte C): Incompatibilidad de ayuda activa con otros roles
 -- -------------------------------------------------------------------------
 
-DROP TRIGGER IF EXISTS TRG_RN04_Trabajador_INS //
-CREATE TRIGGER TRG_RN04_Trabajador_INS
+DROP TRIGGER IF EXISTS TRG_RN03_Trabajador_INS //
+CREATE TRIGGER TRG_RN03_Trabajador_INS
 BEFORE INSERT ON Trabajador
 FOR EACH ROW
 BEGIN
@@ -242,12 +242,12 @@ BEGIN
 
     IF v_ayuda_activa > 0 THEN
         SIGNAL SQLSTATE '45000' 
-        SET MESSAGE_TEXT = 'RN04: Una persona con ayuda económica activa no puede ser Trabajador.';
+        SET MESSAGE_TEXT = 'RN03: Una persona con ayuda económica activa no puede ser Trabajador.';
     END IF;
 END //
 
-DROP TRIGGER IF EXISTS TRG_RN04_Empleado_INS //
-CREATE TRIGGER TRG_RN04_Empleado_INS
+DROP TRIGGER IF EXISTS TRG_RN03_Empleado_INS //
+CREATE TRIGGER TRG_RN03_Empleado_INS
 BEFORE INSERT ON Empleado
 FOR EACH ROW
 BEGIN
@@ -263,12 +263,12 @@ BEGIN
 
     IF v_ayuda_activa > 0 THEN
         SIGNAL SQLSTATE '45000' 
-        SET MESSAGE_TEXT = 'RN04: Una persona con ayuda económica activa no puede ser Empleado.';
+        SET MESSAGE_TEXT = 'RN03: Una persona con ayuda económica activa no puede ser Empleado.';
     END IF;
 END //
 
-DROP TRIGGER IF EXISTS TRG_RN04_Benefactor_INS //
-CREATE TRIGGER TRG_RN04_Benefactor_INS
+DROP TRIGGER IF EXISTS TRG_RN03_Benefactor_INS //
+CREATE TRIGGER TRG_RN03_Benefactor_INS
 BEFORE INSERT ON Benefactor
 FOR EACH ROW
 BEGIN
@@ -284,7 +284,7 @@ BEGIN
 
     IF v_ayuda_activa > 0 THEN
         SIGNAL SQLSTATE '45000' 
-        SET MESSAGE_TEXT = 'RN04: Una persona con ayuda económica activa no puede ser Benefactor.';
+        SET MESSAGE_TEXT = 'RN03: Una persona con ayuda económica activa no puede ser Benefactor.';
     END IF;
 END //
 
