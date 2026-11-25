@@ -8,13 +8,10 @@ insertar información como el historial de antiguos becados no se quede bloquead
 la fecha actual). A este archivo habrá que añadirle muchísima más información que insertar, para facilitar la comprobación del 
 buen funcionamiento de la base de datos.
 
-El archivo triggers sería el siguiente archivo a implementar, para establecer las normativas del negocio, aunque 
-también podría primero implementarse el archivo de las consultas ya que este no hace ningún cambio en cuanto a las bases de datos
-que debería bloquearse. Por ahora en consultas solo tenemos una breve representación de ideas por ejemplo la consulta de los 
-datos de los apadrinados y sus notas medias (esto deberíamos poder hacerlo también con los de las escuelas de oficio por ejemplo)
+El archivo triggers sería el siguiente archivo a implementar, para establecer las normativas del negocio
 
 En el archivo de comprobacion_crear_tables deberá implementarse después de el archivo de triggers si o si, porque si no dichos
 movimientos no se bloquearan y podrá insertarse información errónea en los archivos.
 
-El archivo funciones_procedimientos es el último en ejecutarse, este contiene las funciones como cambiar padrino. Este archivo,
+El archivo funciones_procedimientos deberá ejecutarse antes que el de consultas, este contiene las funciones como cambiar padrino. Este archivo,
 al igual que el de consultas debe desarrollarse todavía aún más. 

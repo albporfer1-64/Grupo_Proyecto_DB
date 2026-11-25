@@ -1,16 +1,116 @@
 USE practica;
 
--- Consulta 1: Listado de apadrinados activos, la localidad donde estudian y su nota media actual
+-- =========================================================================
+-- CONSULTAS DEL PROYECTO 
+-- =========================================================================
+
+-- C01: Listado completo de apadrinados junto con los datos de sus respectivos benefactores/padrinos asociados
 SELECT 
-    p.nombre, p.apellidos, a.localidad AS Zona_Estudio,
-    a.nombreTutor,
+    pa.nombre AS Nombre_Apadrinado,
+    pa.apellidos AS Apellidos_Apadrinado,
+    a.localidad AS Localidad_Apadrinado,
+    pb.nombre AS Nombre_Benefactor,
+    pb.apellidos AS Apellidos_Benefactor,
+    b.NIF AS NIF_Benefactor,
+    b.correo AS Correo_Benefactor,
+    b.telefono AS Telefono_Benefactor
+FROM Apadrinado a
+JOIN Persona pa ON a.OID = pa.OID
+LEFT JOIN ContratoPadrino cp ON a.OID = cp.OID_A
+LEFT JOIN Benefactor b ON cp.OID_Be = b.OID
+LEFT JOIN Persona pb ON b.OID = pb.OID
+ORDER BY pa.apellidos, pa.nombre;
+
+-- C02: Contratos de apadrinamiento vigentes con los benefactores, detallando aportación, fechas y partes implicadas
+SELECT 
+    cp.OID AS ID_Contrato,
+    cp.aportacion AS Aportacion_Mensual,
+    cp.fecha_inicio AS Fecha_Inicio,
+    cp.fecha_fin AS Fecha_Fin,
+    CONCAT(pb.nombre, ' ', pb.apellidos) AS Benefactor,
+    b.NIF AS NIF_Benefactor,
+    CONCAT(pa.nombre, ' ', pa.apellidos) AS Apadrinado
+FROM ContratoPadrino cp
+JOIN Benefactor b ON cp.OID_Be = b.OID
+JOIN Persona pb ON b.OID = pb.OID
+JOIN Apadrinado a ON cp.OID_A = a.OID
+JOIN Persona pa ON a.OID = pa.OID
+WHERE cp.fecha_fin IS NULL OR cp.fecha_fin >= CURRENT_DATE
+ORDER BY cp.fecha_inicio DESC;
+
+-- C03: Para cada misión de apadrinamiento, lista detallada de los apadrinados adscritos a ella
+SELECT 
+    am.Titulo AS Mision_Apadrinamiento,
+    am.Localidad AS Localidad_Mision,
+    p.nombre AS Nombre_Apadrinado,
+    p.apellidos AS Apellidos_Apadrinado,
+    p.fechaNacimiento AS Fecha_Nacimiento,
+    a.fechaFinApadrinado AS Fecha_Fin_Apadrinamiento,
+    a.nombreTutor AS Tutor_Legal,
+    a.telefonoTutor AS Telefono_Tutor
+FROM Apadrinamiento am
+JOIN Apadrinado a ON am.OID = a.OID_AM
+JOIN Persona p ON a.OID = p.OID
+ORDER BY am.Titulo, p.apellidos, p.nombre;
+
+-- C04: Para cada misión de Escuela de Oficios, listado completo de los estudiantes matriculados en ella
+SELECT 
+    eo.Titulo AS Escuela_De_Oficios,
+    eo.Localidad AS Localidad_Escuela,
+    p.nombre AS Nombre_Estudiante,
+    p.apellidos AS Apellidos_Estudiante,
+    e.correo AS Correo,
+    e.telefono AS Telefono,
+    e.fecha_inicio AS Fecha_Inicio,
+    e.fecha_fin AS Fecha_Fin
+FROM Escuela_Oficios eo
+JOIN Estudiante_O e ON eo.OID = e.OID_EO
+JOIN Persona p ON e.OID = p.OID
+ORDER BY eo.Titulo, p.apellidos, p.nombre;
+
+-- C05: Alumnos (apadrinados y estudiantes de la Escuela de Oficios) junto con las calificaciones obtenidas en cada asignatura
+SELECT 
+    'Apadrinado' AS Tipo_Alumno,
+    p.nombre AS Nombre,
+    p.apellidos AS Apellidos,
+    aa.titulo AS Asignatura,
+    na.nota AS Calificacion
+FROM NotaApadrinado na
+JOIN Apadrinado a ON na.OID_A = a.OID
+JOIN Persona p ON a.OID = p.OID
+JOIN AsignaturaApadrinado aa ON na.OID_AP = aa.OID
+
+UNION ALL
+
+SELECT 
+    'Escuela de Oficios' AS Tipo_Alumno,
+    p.nombre AS Nombre,
+    p.apellidos AS Apellidos,
+    ao.titulo AS Asignatura,
+    no.nota AS Calificacion
+FROM NotaOficios no
+JOIN Estudiante_O eo ON no.OID_EO = eo.OID
+JOIN Persona p ON eo.OID = p.OID
+JOIN AsignaturaOficios ao ON no.OID_AO = ao.OID
+ORDER BY Tipo_Alumno, Apellidos, Nombre, Asignatura;
+
+
+
+
+
+-- C14: Listado de apadrinados activos, la localidad donde estudian, su tutor y su nota media actual
+SELECT 
+    p.nombre AS Nombre_Apadrinado,
+    p.apellidos AS Apellidos_Apadrinado,
+    a.localidad AS Zona_Estudio,
+    a.nombreTutor AS Tutor_Legal,
     FUNC_Calcular_Media_Alumno(p.OID) AS Nota_Media
 FROM Apadrinado a
 JOIN Persona p ON a.OID = p.OID
 WHERE a.fechaFinApadrinado IS NULL OR a.fechaFinApadrinado >= CURRENT_DATE
 ORDER BY Nota_Media DESC;
 
--- Consulta 2: Proyectos ordenados por necesidad económica (Capital que falta por recaudar)
+-- C15: Proyectos ordenados por necesidad económica (capital que falta por recaudar)
 SELECT 
     p.titulo AS Proyecto,
     p.capitalEstimado AS Capital_Objetivo,
@@ -23,7 +123,7 @@ GROUP BY p.OID, p.titulo, p.capitalEstimado
 HAVING Capital_Restante > 0
 ORDER BY Capital_Restante DESC;
 
--- Consulta 3: Desglose del gasto total en sueldos agrupado por Misión (Oficios vs Apadrinamiento)
+-- C16: Desglose del gasto total en sueldos agrupado por Misión (Escuela de Oficios vs Apadrinamiento)
 SELECT 
     CASE 
         WHEN sp.OID_EO IS NOT NULL THEN 'Escuela de Oficios'
@@ -34,10 +134,11 @@ SELECT
 FROM SueldoPagado sp
 GROUP BY Mision_Destino;
 
--- Consulta 4: Llamadas a benefactores con valoración negativa o normal (Para revisión por directiva)
+-- C17: Acciones de marketing a benefactores con valoración negativa o normal (para revisión por directiva)
 SELECT 
-    am.fecha, am.hora, 
-    pb.nombre AS Benefactor, 
+    am.fecha AS Fecha,
+    am.hora AS Hora,
+    pb.nombre AS Benefactor,
     pe.nombre AS Empleado_Gestor,
     am.valoracion_E AS Valoracion,
     am.contenido AS Motivo_Llamada
@@ -48,3 +149,4 @@ JOIN Empleado e ON am.OID_E = e.OID
 JOIN Persona pe ON e.OID = pe.OID
 WHERE am.valoracion_E IN ('MUY_MAL', 'MAL', 'NORMAL')
 ORDER BY am.fecha DESC;
+
