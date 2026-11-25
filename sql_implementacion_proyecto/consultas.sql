@@ -4,7 +4,7 @@ USE practica;
 -- CONSULTAS DEL PROYECTO 
 -- =========================================================================
 
--- C01: Listado completo de apadrinados junto con los datos de sus respectivos benefactores/padrinos asociados
+-- C01: Listado completo de apadrinados activos junto con los datos de su benefactor/padrino actual
 SELECT 
     pa.nombre AS Nombre_Apadrinado,
     pa.apellidos AS Apellidos_Apadrinado,
@@ -16,9 +16,11 @@ SELECT
     b.telefono AS Telefono_Benefactor
 FROM Apadrinado a
 JOIN Persona pa ON a.OID = pa.OID
-LEFT JOIN ContratoPadrino cp ON a.OID = cp.OID_A
+LEFT JOIN ContratoPadrino cp ON a.OID = cp.OID_A 
+    AND (cp.fecha_fin IS NULL OR cp.fecha_fin >= CURRENT_DATE)
 LEFT JOIN Benefactor b ON cp.OID_Be = b.OID
 LEFT JOIN Persona pb ON b.OID = pb.OID
+WHERE a.fechaFinApadrinado IS NULL OR a.fechaFinApadrinado >= CURRENT_DATE
 ORDER BY pa.apellidos, pa.nombre;
 
 -- C02: Contratos de apadrinamiento vigentes con los benefactores, detallando aportación, fechas y partes implicadas
