@@ -324,3 +324,38 @@ INSERT INTO AccionesMarketing (OID, hora, fecha, contenido, metodoComunicacion, 
 (1905, '12:00:00', '2026-11-10', 'Incidencia con el recibo bancario duplicado en octubre.', 'Teléfono', 'MUY_MAL', 5, 22),
 (1906, '10:30:00', '2026-11-12', 'Agradecimiento por aportación al proyecto de Pozo en Kara.', 'Videollamada', 'MUY_BIEN', 20, 23),
 (1907, '19:30:00', '2026-11-15', 'Llamada de bienvenida y explicación de seguimiento escolar.', 'Teléfono', 'BIEN', 4, 24);
+
+-- =========================================================================
+-- AMPLIACIÓN DE DATOS: ENTIDADES CON APADRINADOS Y PADRINOS MULTI-CONTRATO
+-- =========================================================================
+
+-- 1. Nuevas personas (menores de 18 años para cumplir RN01)
+INSERT INTO Persona (OID, nombre, apellidos, fechaNacimiento) VALUES
+(35, 'Afiavi', 'Kouassi', '2015-04-18'),
+(36, 'Komla', 'Tossou', '2013-10-05'),
+(37, 'Mawuena', 'Adjei', '2016-01-22');
+
+-- 2. Alta como apadrinados activos en las misiones de Kpalimé (103) y Sokodé (106)
+INSERT INTO Apadrinado (OID, fechaFinApadrinado, localidad, nombreTutor, telefonoTutor, emailTutor, OID_AM) VALUES
+(35, NULL, 'Kpalimé', 'Koffi Kouassi', '+22890119988', 'koffi.kouassi@togo.tg', 103),
+(36, NULL, 'Sokodé', 'Amina Tossou', '+22890228877', 'amina.tossou@togo.tg', 106),
+(37, NULL, 'Kpalimé', 'Mensah Adjei', '+22890337766', 'mensah.adjei@togo.tg', 103);
+
+-- 3. Nuevos contratos vigentes:
+--    - OID 8 (Fundación Horizonte Sur S.L., entidad) tiene 2 apadrinados activos (35 y 36)
+--    - OID 6 (Lucía Fernández Vega, persona física) suma un 2º apadrinado activo (37) además de Amara (9)
+INSERT INTO ContratoPadrino (OID, aportacion, fecha_inicio, fecha_fin, OID_Be, OID_A) VALUES
+(1610, 35.00, '2025-03-01', NULL, 8, 35),
+(1611, 35.00, '2025-06-15', NULL, 8, 36),
+(1612, 30.00, '2025-09-01', NULL, 6, 37);
+
+-- 4. Pagos de noviembre 2026 asociados a estos nuevos contratos
+INSERT INTO Pago (OID, cantidad, fecha, OID_Be) VALUES
+(1713, 35.00, '2026-11-02', 8),
+(1714, 35.00, '2026-11-02', 8),
+(1715, 30.00, '2026-11-01', 6);
+
+INSERT INTO TienePago (OID, OID_Pa, OID_A) VALUES
+(1813, 1713, 35),
+(1814, 1714, 36),
+(1815, 1715, 37);

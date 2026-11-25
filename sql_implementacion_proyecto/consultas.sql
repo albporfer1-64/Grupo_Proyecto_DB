@@ -45,20 +45,20 @@ SELECT
     p.nombre AS Nombre_Apadrinado,
     p.apellidos AS Apellidos_Apadrinado,
     p.fechaNacimiento AS Fecha_Nacimiento,
-    a.fechaFinApadrinado AS Fecha_Fin_Apadrinamiento,
-    a.nombreTutor AS Tutor_Legal,
-    a.telefonoTutor AS Telefono_Tutor
+    a.localidad AS Localidad_Residencia,
+    a.fechaFinApadrinado AS Fecha_Fin_Apadrinamiento
 FROM Apadrinamiento am
 JOIN Apadrinado a ON am.OID = a.OID_AM
 JOIN Persona p ON a.OID = p.OID
 ORDER BY am.Titulo, p.apellidos, p.nombre;
 
--- C04: Para cada misión de Escuela de Oficios, listado completo de los estudiantes matriculados en ella
+-- C04: Para cada misión de Escuela de Oficios, listado de estudiantes matriculados y curso que estudian
 SELECT 
     eo.Titulo AS Escuela_De_Oficios,
     eo.Localidad AS Localidad_Escuela,
     p.nombre AS Nombre_Estudiante,
     p.apellidos AS Apellidos_Estudiante,
+    IFNULL(GROUP_CONCAT(DISTINCT c.Titulo SEPARATOR ', '), 'Sin curso asignado') AS Curso_Estudiado,
     e.correo AS Correo,
     e.telefono AS Telefono,
     e.fecha_inicio AS Fecha_Inicio,
@@ -66,6 +66,10 @@ SELECT
 FROM Escuela_Oficios eo
 JOIN Estudiante_O e ON eo.OID = e.OID_EO
 JOIN Persona p ON e.OID = p.OID
+LEFT JOIN NotaOficios no ON e.OID = no.OID_EO
+LEFT JOIN ContieneAAsignatura ca ON no.OID_AO = ca.OID_AO
+LEFT JOIN Curso c ON ca.OID_C = c.OID AND c.escuelaOficio = eo.OID
+GROUP BY eo.OID, eo.Titulo, eo.Localidad, e.OID, p.nombre, p.apellidos, e.correo, e.telefono, e.fecha_inicio, e.fecha_fin
 ORDER BY eo.Titulo, p.apellidos, p.nombre;
 
 -- C05: Alumnos (apadrinados y estudiantes de la Escuela de Oficios) junto con las calificaciones obtenidas en cada asignatura
