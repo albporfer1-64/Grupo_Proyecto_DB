@@ -86,10 +86,6 @@ RN01 .. Mision
 RN01 .. Apadrinado
 
 
-'Regla de negocio 03:
-note "RN03\n La nota deberá ser \n entre 0 y 10." as RN03
-RN03 .. NotaApadrinado
-RN03 .. NotaOficios
 
 
 'Lo que viene a continuacion es para la estetica del diagrama:
