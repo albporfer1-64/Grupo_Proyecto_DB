@@ -1,0 +1,144 @@
+@startuml hola
+hide methods
+skinparam classAttributeIconSize 0
+
+class Proyecto{
+    titulo VARCHAR
+    contenido VARCHAR
+    capitalEstimado INT
+    fechaInicio DATE
+    fechaFinal DATE
+}
+
+class ActividadProyecto{
+    titulo VARCHAR
+    descripcion VARCHAR
+    coste INT
+    fechaInicio DATE
+    fechaFinal DATE
+}
+
+class Mision{
+    titulo VARCHAR
+    localidad VARCHAR
+    descripcion VARCHAR
+}
+
+class "Escuela de oficios" as EscuelaDeOficios{
+    
+}
+
+class Becados{
+}
+
+
+class Apadrinamiento{
+}
+
+'Lo que viene a continuacion es para la estetica del diagrama:
+EscuelaDeOficios -[hidden]right- Becados
+Becados -[hidden]right- Apadrinamiento
+
+Mision "*"--"*" Proyecto
+Mision "1"--"*" SueldoPagado
+SueldoPagado "*"--"1" Trabajador
+Mision "1"-up-"*" ContratoTrabajador
+ContratoTrabajador "*"--"1" Trabajador
+Proyecto *--"*" ActividadProyecto
+
+'Subclases de Mision:
+Mision <|-- EscuelaDeOficios
+Mision <|-- Becados
+Mision <|-- Apadrinamiento
+
+'Restricción de cobertura:
+note on link : {completa, disjunta}
+
+class Apadrinado{
+}
+
+
+class Aportacion_B{
+    cantidad INT
+    fecha DATE
+}
+
+class AccionesMarketing {
+    hora TIME
+    fecha DATE
+    contenido VARCHAR
+    metodoComunicacion VARCHAR
+    valoracion_E
+}
+
+enum valoracion_E{
+    MUY_MAL
+    MAL
+    NORMAL
+    BIEN
+    MUY_BIEN
+}
+
+class Benefactor{ 
+    numCuenta INT
+}
+
+class Empleado{
+}
+
+class Trabajador{
+}
+
+class ContratoTrabajador{
+    sueldo INT
+    fechaInicio DATE
+    fechaFinal DATE
+}
+
+class Pago{
+    cantidad INT
+    fecha DATE
+}
+
+class ContratoPadrino{
+    aportacion INT
+    fechaInicio DATE
+    fechaFinal DATE
+}
+
+class SueldoPagado{
+    cantidad INT
+    fecha DATE
+}
+
+
+Apadrinamiento "1"--"*" Apadrinado
+Benefactor "1"--"*" Pago
+Pago "*"--"*" Apadrinado
+Benefactor "1"--"*" ContratoPadrino
+Apadrinado "1"--"*" ContratoPadrino
+Benefactor "*"--"*" Proyecto
+
+Empleado "*"--"*"Benefactor
+
+
+(Empleado, Benefactor) .. AccionesMarketing
+(Benefactor, Proyecto) .. Aportacion_B
+
+
+'Regla de negocio 01:
+note "RN01\n La misión de \n apadrinamiento acaba a los 18 años, \n después, el joven puede elegir entre \n ser becado o no." as RN01
+RN01 .. Mision
+RN01 .. Apadrinado
+
+'Regla de negocio 02:
+note "RN02\n No puede haber \n más de un contrato vigente entre \n distintos benefactores con \n un apadrinado." as RN02
+RN02 .. Benefactor
+RN02 .. Apadrinado
+
+
+
+'Lo que viene a continuacion es para la estetica del diagrama:
+Apadrinamiento -[hidden]right- EscuelaDeOficios
+EscuelaDeOficios -[hidden]right- Becados
+@enduml
