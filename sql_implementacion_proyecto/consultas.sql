@@ -101,7 +101,88 @@ JOIN AsignaturaOficios ao ON no.OID_AO = ao.OID
 ORDER BY Tipo_Alumno, Apellidos, Nombre, Asignatura;
 
 
+#6
+SELECT 
+    p.nombre, 
+    p.apellidos, 
+    ct.sueldo, 
+    ct.fecha_inicio, 
+    COALESCE(eo.Titulo, am.Titulo) AS mision
+FROM ContratoTrabajador AS ct
+JOIN Trabajador AS T ON ct.OID_T = T.OID
+JOIN Persona AS P ON T.OID = P.OID
+LEFT JOIN Escuela_Oficios AS eo ON ct.OID_EO = eo.OID
+LEFT JOIN Apadrinamiento AS am ON ct.OID_AM = am.OID
+WHERE ct.fecha_fin IS NULL OR ct.fecha_fin >= CURDATE();
 
+#7
+SELECT p.nombre, p.apellidos, t.NIF, ct.OID AS ID_Contrato, ct.sueldo, ct.fecha_inicio, ct.fecha_fin,
+    IFNULL(eo.Titulo, am.Titulo) AS Mision,
+    CASE 
+        WHEN ct.fecha_fin IS NULL OR ct.fecha_fin >= CURRENT_DATE THEN 'Vigente'
+        ELSE 'Finalizado'
+    END AS Estado_Contrato
+FROM ContratoTrabajador ct
+JOIN Trabajador t ON ct.OID_T = t.OID
+JOIN Persona p ON t.OID = p.OID
+LEFT JOIN Escuela_Oficios eo ON ct.OID_EO = eo.OID
+LEFT JOIN Apadrinamiento am ON ct.OID_AM = am.OID
+WHERE t.OID = 1
+ORDER BY ct.fecha_inicio DESC;
+
+#8
+SELECT 
+    pb.nombre AS Nombre_Benefactor,
+    pb.apellidos AS Apellidos_Benefactor,
+    b.NIF AS NIF_Benefactor,
+    pa.nombre AS Nombre_Apadrinado,
+    pa.apellidos AS Apellidos_Apadrinado,
+    cp.OID AS ID_Contrato,
+    cp.aportacion,
+    cp.fecha_inicio,
+    cp.fecha_fin,
+    CASE 
+        WHEN cp.fecha_fin IS NULL OR cp.fecha_fin >= CURRENT_DATE THEN 'Vigente'
+        ELSE 'Finalizado'
+    END AS Estado_Contrato
+FROM ContratoPadrino cp
+JOIN Benefactor b ON cp.OID_Be = b.OID
+JOIN Persona pb ON b.OID = pb.OID
+JOIN Apadrinado a ON cp.OID_A = a.OID
+JOIN Persona pa ON a.OID = pa.OID
+WHERE b.OID = 6
+ORDER BY cp.fecha_inicio DESC;
+
+
+#9
+SELECT 
+    p.titulo AS Proyecto,
+    ap.titulo AS Actividad,
+    ap.descripcion AS Descripcion,
+    ap.coste AS Coste,
+    ap.fecha_inicio AS Fecha_Inicio,
+    ap.fecha_fin AS Fecha_Fin
+FROM Proyecto p
+LEFT JOIN ContieneAActividadesProyecto cap ON p.OID = cap.OID_P
+LEFT JOIN ActividadProyecto ap ON cap.OID_AP = ap.OID
+ORDER BY p.titulo, ap.fecha_inicio;
+
+#10
+SELECT DISTINCT
+    p.nombre,
+    p.apellidos,
+    t.NIF,
+    t.rol AS Rol_Funcion,
+    IFNULL(eo.Titulo, am.Titulo) AS Mision,
+    IFNULL(eo.Localidad, am.Localidad) AS Localidad
+FROM Trabajador t
+JOIN Persona p ON t.OID = p.OID
+JOIN ContratoTrabajador ct ON t.OID = ct.OID_T
+LEFT JOIN Escuela_Oficios eo ON ct.OID_EO = eo.OID
+LEFT JOIN Apadrinamiento am ON ct.OID_AM = am.OID
+WHERE (eo.Titulo = 'Centro Politécnico Atachiarare' OR am.Titulo = 'Centro Politécnico Atachiarare')
+  AND (ct.fecha_fin IS NULL OR ct.fecha_fin >= CURRENT_DATE);
+  
 
 
 -- C14: Listado de apadrinados activos, la localidad donde estudian, su tutor y su nota media actual
